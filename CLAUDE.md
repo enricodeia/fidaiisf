@@ -97,7 +97,7 @@ Crea il file `editions/YYYY-MM-DD/content.json` seguendo lo schema di `content.e
 
 **Per il pull quote:** estrai una frase significativa da uno degli articoli della settimana (max 18 parole), oppure dall'editoriale Fedaiisf. Mai inventare citazioni.
 
-**Per `publicUrl`:** sempre nel formato `https://enricodeia.github.io/fidaiisf/YYYY-MM-DD/`.
+**Per `publicUrl`:** sempre nel formato `https://fidaiisf.vercel.app/editions/YYYY-MM-DD/`.
 
 ## Step 6 — Build HTML
 
@@ -111,7 +111,7 @@ Lo script legge `newsletter-template.html` + `content.json` e produce `editions/
 
 Verifica che il file sia stato creato e che contenga il titolo dell'edizione.
 
-## Step 7 — Pubblicazione su GitHub Pages
+## Step 7 — Pubblicazione su Vercel
 
 Esegui in sequenza:
 
@@ -121,14 +121,14 @@ git commit -m "Newsletter del YYYY-MM-DD — N° X"
 git push origin main
 ```
 
-GitHub Pages pubblica automaticamente in 30–60 secondi.
+Vercel è collegato al repo `enricodeia/fidaiisf` e fa deploy automatico ad ogni push su `main` in 20–40 secondi.
 
 **Output finale all'utente:**
 
 > ✅ Newsletter pubblicata.
 >
 > **Link da condividere su WhatsApp:**
-> https://enricodeia.github.io/fidaiisf/YYYY-MM-DD/
+> https://fidaiisf.vercel.app/editions/YYYY-MM-DD/
 >
 > Apri il link nel browser e clicca "Condividi" per inviarla.
 
@@ -138,8 +138,9 @@ GitHub Pages pubblica automaticamente in 30–60 secondi.
 
 Repository: `https://github.com/enricodeia/fidaiisf`
 Branch: `main`
-GitHub Pages: attivato sul branch `main`, cartella `/` (root)
-URL pubblico base: `https://enricodeia.github.io/fidaiisf/`
+Hosting: Vercel (progetto `fidaiisf`), deploy automatico su push a `main`
+URL pubblico base: `https://fidaiisf.vercel.app/`
+Le edizioni vivono in `/editions/YYYY-MM-DD/` → URL `https://fidaiisf.vercel.app/editions/YYYY-MM-DD/`
 
 Le credenziali git sono già configurate sul computer (token salvato in Windows Credential Manager). Non chiedere mai all'utente di autenticarsi.
 

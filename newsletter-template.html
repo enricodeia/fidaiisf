@@ -3,7 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Newsletter Fedaiisf — 25 aprile 2026</title>
+<!--META-->
+<title>Newsletter Fedaiisf</title>
+<link rel="icon" type="image/png" href="assets/Logo.png" />
+<link rel="apple-touch-icon" href="assets/Logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -20,9 +23,9 @@
     --ink: #1A1B1F;
     --ink-2: #3A3D44;
     --ink-3: #6B6F78;
-    --line: #E4E4E0;
-    --paper: #FBFAF6;
-    --paper-2: #F4F1E9;
+    --line: #E2DDCD;
+    --paper: #F4ECD8;
+    --paper-2: #EBE2C9;
     --white: #FFFFFF;
     --r-sm: 10px; --r-md: 16px; --r-lg: 24px; --r-xl: 32px; --r-pill: 999px;
   }
@@ -31,7 +34,7 @@
   body {
     font-family: 'Inter', system-ui, sans-serif;
     color: var(--ink);
-    background: #EDE9DF;
+    background: #DCCFAF;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -103,7 +106,7 @@
     height: 4px;
     background: linear-gradient(to right,
       var(--accent-green) 0 33.33%,
-      var(--paper) 33.33% 66.66%,
+      #FFFFFF 33.33% 66.66%,
       var(--accent-red) 66.66% 100%);
     margin: 0 48px;
   }
@@ -282,38 +285,66 @@
   /* Pull quote */
   .pull {
     margin: 14px 48px 36px;
-    padding: 36px 40px;
+    padding: 40px 44px;
     background: var(--brand);
     color: #fff;
     border-radius: var(--r-lg);
     position: relative;
     overflow: hidden;
+    display: flex; align-items: center; gap: 36px;
   }
-  .pull::after {
-    content: ""; position: absolute;
-    right: -80px; bottom: -80px;
-    width: 240px; height: 240px; border-radius: 50%;
-    border: 2px solid rgba(255,255,255,0.08);
-    pointer-events: none;
-  }
-  .pull::before {
-    content: ""; position: absolute;
-    right: -30px; bottom: -30px;
-    width: 140px; height: 140px; border-radius: 50%;
-    border: 2px solid rgba(255,255,255,0.06);
-    pointer-events: none;
-  }
+  .pull-quote { flex: 1; min-width: 0; position: relative; z-index: 2; }
   .pull blockquote {
     font-family: 'Fraunces', serif;
     font-weight: 400;
     font-size: 24px; line-height: 1.28;
     margin: 0 0 14px; letter-spacing: -0.01em;
     text-wrap: balance;
-    max-width: 24ch;
   }
   .pull cite {
     display: block; font-style: normal;
     font-size: 12.5px; opacity: 0.85;
+  }
+  .pull-logo {
+    position: relative;
+    width: 160px; height: 160px;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pull-logo img {
+    position: relative;
+    z-index: 3;
+    width: 88px; height: 88px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 6px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  }
+  .pull-logo .ping {
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 88px; height: 88px;
+    margin: -44px 0 0 -44px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.55);
+    animation: pull-ping 2.6s cubic-bezier(0.0, 0.0, 0.2, 1) infinite;
+    pointer-events: none;
+  }
+  .pull-logo .ping:nth-of-type(2) { animation-delay: 0.65s; border-color: rgba(255,255,255,0.4); }
+  .pull-logo .ping:nth-of-type(3) { animation-delay: 1.3s; border-color: rgba(255,255,255,0.25); }
+  @keyframes pull-ping {
+    0%   { transform: scale(1);   opacity: 0.7; }
+    80%  { opacity: 0; }
+    100% { transform: scale(2.6); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pull-logo .ping { animation: none; opacity: 0.4; }
+  }
+  @media (max-width: 640px) {
+    .pull { flex-direction: column; gap: 24px; padding: 32px 28px; }
+    .pull-logo { width: 130px; height: 130px; }
+    .pull-logo img { width: 72px; height: 72px; margin-left: -36px; margin-top: -36px; }
+    .pull-logo .ping { width: 72px; height: 72px; margin: -36px 0 0 -36px; }
   }
 
   /* Footer */
@@ -702,8 +733,16 @@
 
           {/* Pull quote */}
           <div className="pull">
-            <blockquote>«{DATA.pull.text}»</blockquote>
-            <cite>— {DATA.pull.cite}</cite>
+            <div className="pull-quote">
+              <blockquote>«{DATA.pull.text}»</blockquote>
+              <cite>— {DATA.pull.cite}</cite>
+            </div>
+            <div className="pull-logo" aria-hidden="true">
+              <span className="ping"></span>
+              <span className="ping"></span>
+              <span className="ping"></span>
+              <img src="assets/Logo.png" alt="Fedaiisf" />
+            </div>
           </div>
 
           {/* Footer */}

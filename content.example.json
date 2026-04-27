@@ -1,0 +1,69 @@
+{
+  "issue": "N° 17",
+  "date": "25 aprile 2026",
+  "dateShort": "25.04.2026",
+  "lead": {
+    "kicker": "In primo piano",
+    "title": "Cosmofarma 2026, il convegno Fedaiisf tra etica e innovazione",
+    "deck": "La diffusione dei farmaci di precisione e l'impiego dell'intelligenza artificiale ridisegnano il ruolo dell'Informatore Scientifico del Farmaco. A Bologna, professionisti e istituzioni si sono confrontati su come tenere insieme rigore deontologico e nuove tecnologie.",
+    "source": "Federfarma",
+    "date": "23 aprile 2026",
+    "url": "https://www.fedaiisf.it/cosmofarma-2026-il-convegno-fedaiisf-tra-etica-e-innovazione/",
+    "image": "",
+    "imageLabel": "Cosmofarma 2026 — Bologna"
+  },
+  "articles": [
+    {
+      "category": "Industria",
+      "categoryColor": "blue",
+      "title": "MSD punta sull'AI \"agentica\"",
+      "summary": "Accordo fino a 1 miliardo di dollari con Google Cloud per accelerare lo sviluppo dei farmaci. Una scommessa industriale che ridefinisce il ruolo dell'intelligenza artificiale nella ricerca farmaceutica.",
+      "source": "Pharmastar",
+      "url": "https://www.fedaiisf.it/msd-punta-sullai-agentica/"
+    },
+    {
+      "category": "Politica sanitaria",
+      "categoryColor": "red",
+      "title": "Egualia. Allarme farmaceutica pubblica: rischio di maggiori oneri per i cittadini",
+      "summary": "Allerta di Egualia sulle ipotesi di revisione della lista dei farmaci concedibili da parte di AIFA prevista dalla legge di bilancio: il timore è uno scivolamento dei costi sui pazienti.",
+      "source": "Comunicato",
+      "url": "https://www.fedaiisf.it/egualia-allarme-farmaceutica-pubblica-rischio-di-maggiori-oneri-per-i-cittadini/"
+    },
+    {
+      "category": "Professione",
+      "categoryColor": "green",
+      "title": "Informatori scientifici, AI e terapie personalizzate ridisegnano la professione",
+      "summary": "Intelligenza artificiale, medicina di precisione e nuovi modelli di informazione sul farmaco al centro del confronto promosso da Fedaiisf nell'ambito di Cosmofarma.",
+      "source": "Fedaiisf",
+      "url": "https://www.fedaiisf.it/informatori-scientifici-ai-e-terapie-personalizzate-ridisegnano-la-professione-il-confronto-a-cosmofarma/"
+    },
+    {
+      "category": "Norme",
+      "categoryColor": "blue",
+      "title": "I medici di famiglia possono restare in servizio fino a 73 anni",
+      "summary": "È entrato in vigore il decreto legge PNRR, pubblicato in Gazzetta Ufficiale: previsto l'innalzamento del limite di età per i medici di medicina generale.",
+      "source": "Gazzetta Ufficiale",
+      "url": "https://www.fedaiisf.it/i-medici-di-famiglia-possono-restare-in-servizio-fino-a-73-anni/"
+    },
+    {
+      "category": "AIFA",
+      "categoryColor": "red",
+      "title": "AIFA pubblica il Rapporto regionale sull'uso dei farmaci",
+      "summary": "Online i Rapporti regionali 2024: l'analisi dell'uso dei farmaci come strumento per orientare le politiche sanitarie territoriali e valutare l'appropriatezza prescrittiva.",
+      "source": "AIFA — 21 aprile 2026",
+      "url": "https://www.fedaiisf.it/aifa-pubblica-il-rapporto-regionale-sulluso-dei-farmaci/"
+    },
+    {
+      "category": "Territorio",
+      "categoryColor": "green",
+      "title": "Chieti. L'Informazione Scientifica incontra i futuri Medici di Medicina Generale",
+      "summary": "Il 20 aprile presso l'Ordine dei medici a Chieti un incontro di orientamento tra ISF e nuove leve della medicina generale, sull'asse formazione-deontologia-pratica.",
+      "source": "Sezione Abruzzo",
+      "url": "https://www.fedaiisf.it/chieti-professionisti-a-confronto-linformazione-scientifica-incontra-i-futuri-medici-di-medicina-generale/"
+    }
+  ],
+  "pull": {
+    "text": "L'intelligenza artificiale non ci ruba il lavoro, ma cambia tutto.",
+    "cite": "Cosmofarma 2026 — Socialfarma, 21 aprile 2026"
+  }
+}

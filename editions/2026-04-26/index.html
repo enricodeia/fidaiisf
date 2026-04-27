@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Newsletter Fedaiisf — 25 aprile 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  :root {
+    --brand: #0B4FA0;
+    --brand-deep: #073973;
+    --brand-soft: #E8EFF9;
+    --accent-red: #B7202E;
+    --accent-green: #1B7A4C;
+    --ink: #1A1B1F;
+    --ink-2: #3A3D44;
+    --ink-3: #6B6F78;
+    --line: #E4E4E0;
+    --paper: #FBFAF6;
+    --paper-2: #F4F1E9;
+    --white: #FFFFFF;
+    --r-sm: 10px; --r-md: 16px; --r-lg: 24px; --r-xl: 32px; --r-pill: 999px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--ink);
+    background: #EDE9DF;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Page */
+  .page {
+    max-width: 720px; margin: 32px auto;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    box-shadow: 0 24px 60px -30px rgba(11,79,160,0.18);
+  }
+
+  /* Toolbar */
+  .toolbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251,250,246,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 20px; gap: 12px;
+    font-size: 12.5px; color: var(--ink-3);
+  }
+  .toolbar .meta { display: flex; align-items: center; gap: 10px; font-weight: 500; }
+  .toolbar .dot { width: 7px; height: 7px; border-radius: 999px; background: var(--accent-green); display: inline-block; box-shadow: 0 0 0 3px rgba(27,122,76,0.15); }
+  .toolbar .actions { display: flex; gap: 6px; align-items: center; }
+
+  .btn {
+    appearance: none; border: 1px solid var(--ink); background: var(--ink); color: var(--paper);
+    padding: 9px 14px; border-radius: var(--r-pill);
+    font: 500 12.5px/1 'Inter', sans-serif;
+    cursor: pointer; transition: all .15s ease;
+    display: inline-flex; align-items: center; gap: 7px; text-decoration: none;
+  }
+  .btn:hover { background: var(--brand); border-color: var(--brand); }
+  .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+  .btn.ghost:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn .ico { width: 14px; height: 14px; }
+
+  /* Masthead */
+  .masthead { padding: 40px 48px 26px; }
+  .masthead-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .mast-logo img { height: 40px; width: auto; display: block; }
+  .mast-issue { text-align: right; font-size: 12px; color: var(--ink-3); line-height: 1.6; }
+  .mast-issue strong { color: var(--ink); font-weight: 500; }
+
+  .mast-title {
+    margin: 32px 0 10px;
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 52px;
+    line-height: 0.98;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .mast-title em { font-style: italic; color: var(--brand); font-weight: 300; }
+  .mast-sub {
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.55;
+    max-width: 52ch;
+  }
+
+  .rule { height: 1px; background: var(--line); margin: 0 48px; }
+  .rule.tri {
+    height: 4px;
+    background: linear-gradient(to right,
+      var(--accent-green) 0 33.33%,
+      var(--paper) 33.33% 66.66%,
+      var(--accent-red) 66.66% 100%);
+    margin: 0 48px;
+  }
+
+  /* Section */
+  .sec-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding: 36px 48px 16px; gap: 16px;
+  }
+  .sec-kicker {
+    font-size: 12px; color: var(--brand); font-weight: 500;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .sec-kicker::before {
+    content: ""; width: 18px; height: 1px; background: var(--brand);
+  }
+  .sec-title {
+    font-family: 'Fraunces', serif;
+    font-size: 22px; line-height: 1.15;
+    color: var(--ink); margin: 6px 0 0;
+    font-weight: 500; letter-spacing: -0.01em;
+  }
+  .sec-count { font-size: 12px; color: var(--ink-3); }
+
+  /* Hero */
+  .hero { padding: 0 48px 36px; }
+  .hero .label {
+    display: inline-block;
+    background: var(--brand-soft); color: var(--brand-deep);
+    padding: 6px 12px; border-radius: var(--r-pill);
+    font: 500 11.5px/1 'Inter', sans-serif;
+    margin-bottom: 18px;
+  }
+  .hero h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 36px; line-height: 1.06;
+    letter-spacing: -0.018em;
+    margin: 0 0 16px; color: var(--ink);
+    text-wrap: balance;
+  }
+  .hero h2 a {
+    color: inherit; text-decoration: none;
+    background-image: linear-gradient(var(--brand), var(--brand));
+    background-size: 0 1px; background-repeat: no-repeat; background-position: 0 100%;
+    transition: background-size .25s ease;
+  }
+  .hero h2 a:hover { background-size: 100% 1px; }
+  .hero .deck {
+    font-size: 15.5px; line-height: 1.65; color: var(--ink-2);
+    margin: 0 0 18px; max-width: 58ch;
+  }
+  .hero .deck::first-letter {
+    font-family: 'Fraunces', serif;
+    font-size: 48px; line-height: 0.85; float: left;
+    margin: 4px 8px 0 0; color: var(--brand); font-weight: 400;
+  }
+  .hero .meta-row {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    font-size: 12.5px; color: var(--ink-3);
+    margin-top: 12px;
+  }
+  .hero .meta-row .read {
+    color: var(--brand); text-decoration: none; font-weight: 500;
+    border-bottom: 1px solid var(--brand); padding-bottom: 2px;
+  }
+  .hero .meta-row .read:hover { color: var(--brand-deep); border-color: var(--brand-deep); }
+  .hero .meta-row .sep { color: var(--line); }
+
+  .hero .visual {
+    margin-bottom: 26px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    aspect-ratio: 16/9;
+    background: repeating-linear-gradient(45deg,
+      rgba(11,79,160,0.06) 0 8px,
+      rgba(11,79,160,0.02) 8px 16px);
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero .visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero .visual::before {
+    content: ""; position: absolute; inset: 14px;
+    border: 1px dashed rgba(11,79,160,0.25);
+    border-radius: calc(var(--r-lg) - 8px);
+    pointer-events: none;
+  }
+  .hero .visual:has(img)::before { display: none; }
+  .hero .visual .v-label {
+    font-size: 12px; color: var(--brand);
+    background: var(--paper);
+    padding: 7px 14px;
+    border: 1px solid rgba(11,79,160,0.25);
+    border-radius: var(--r-pill);
+    z-index: 1;
+  }
+
+  /* Articles list */
+  .grid { padding: 0 48px 28px; }
+  .article-row {
+    display: grid;
+    grid-template-columns: 70px 1fr auto;
+    gap: 20px; padding: 24px 0;
+    border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .article-row:last-child { border-bottom: 1px solid var(--line); }
+  .article-num {
+    font-size: 12px; color: var(--ink-3);
+    padding-top: 4px; line-height: 1.4;
+  }
+  .article-num .num { font-weight: 500; color: var(--ink-2); display: block; margin-bottom: 6px; }
+  .cat-tag {
+    display: inline-block;
+    padding: 3px 9px; border-radius: var(--r-pill);
+    font-size: 11px; font-weight: 500;
+    background: var(--brand-soft); color: var(--brand-deep);
+  }
+  .cat-tag.red { background: #FBE9EB; color: var(--accent-red); }
+  .cat-tag.green { background: #E5F1EB; color: var(--accent-green); }
+  .cat-tag.blue { background: var(--brand-soft); color: var(--brand-deep); }
+
+  .article-body h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 19px; line-height: 1.22;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px; color: var(--ink);
+    text-wrap: balance;
+  }
+  .article-body h3 a {
+    color: inherit; text-decoration: none;
+    background-image: linear-gradient(var(--ink), var(--ink));
+    background-size: 0 1px; background-repeat: no-repeat; background-position: 0 100%;
+    transition: background-size .25s ease;
+  }
+  .article-body h3 a:hover { background-size: 100% 1px; }
+  .article-body p {
+    margin: 0; font-size: 14px; line-height: 1.6;
+    color: var(--ink-2);
+    text-wrap: pretty;
+  }
+  .article-body .meta-line {
+    margin-top: 10px;
+    display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+    font-size: 12px; color: var(--ink-3);
+  }
+  .article-body .meta-line a {
+    color: var(--brand); text-decoration: none; font-weight: 500;
+  }
+  .article-body .meta-line a:hover { text-decoration: underline; }
+  .article-body .meta-line .sep { color: var(--line); }
+  .article-arrow {
+    align-self: center;
+    width: 36px; height: 36px; border-radius: var(--r-pill);
+    border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink-3); text-decoration: none;
+    transition: all .15s ease; background: var(--paper);
+  }
+  .article-arrow:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); transform: translateX(2px); }
+
+  /* Pull quote */
+  .pull {
+    margin: 14px 48px 36px;
+    padding: 36px 40px;
+    background: var(--brand);
+    color: #fff;
+    border-radius: var(--r-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  .pull::after {
+    content: ""; position: absolute;
+    right: -80px; bottom: -80px;
+    width: 240px; height: 240px; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.08);
+    pointer-events: none;
+  }
+  .pull::before {
+    content: ""; position: absolute;
+    right: -30px; bottom: -30px;
+    width: 140px; height: 140px; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.06);
+    pointer-events: none;
+  }
+  .pull blockquote {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 24px; line-height: 1.28;
+    margin: 0 0 14px; letter-spacing: -0.01em;
+    text-wrap: balance;
+    max-width: 24ch;
+  }
+  .pull cite {
+    display: block; font-style: normal;
+    font-size: 12.5px; opacity: 0.85;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 36px 48px 32px;
+    border-top: 1px solid var(--line);
+    background: var(--paper-2);
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 28px;
+    font-size: 13px; color: var(--ink-2); line-height: 1.6;
+  }
+  .footer-grid h5 {
+    font-size: 12px; color: var(--ink-3);
+    margin: 0 0 10px; font-weight: 500;
+  }
+  .footer-grid p { margin: 0; }
+  .footer-grid ul { margin: 0; padding: 0; list-style: none; }
+  .footer-grid li { margin-bottom: 5px; }
+  .footer-grid a { color: var(--ink-2); text-decoration: none; border-bottom: 1px solid transparent; }
+  .footer-grid a:hover { border-color: var(--ink-2); }
+
+  .colophon {
+    margin-top: 28px; padding-top: 18px;
+    border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 11.5px; color: var(--ink-3);
+  }
+  .colophon .socials { display: flex; gap: 14px; }
+  .colophon .socials a { color: var(--ink-3); text-decoration: none; }
+  .colophon .socials a:hover { color: var(--ink); }
+
+  /* Toast */
+  .toast {
+    position: fixed; bottom: 24px; left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--ink); color: var(--paper);
+    padding: 13px 20px; border-radius: var(--r-pill);
+    font: 500 13px/1 'Inter', sans-serif;
+    box-shadow: 0 12px 30px -10px rgba(0,0,0,0.35);
+    opacity: 0; pointer-events: none;
+    transition: opacity .2s ease, transform .25s ease;
+    z-index: 100;
+    display: flex; align-items: center; gap: 9px;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .toast .check { width: 14px; height: 14px; color: #6FE2A2; }
+
+  /* Modal */
+  .modal-back {
+    position: fixed; inset: 0;
+    background: rgba(20,22,28,0.55);
+    display: none; align-items: center; justify-content: center;
+    z-index: 200; padding: 24px;
+    backdrop-filter: blur(6px);
+  }
+  .modal-back.open { display: flex; }
+  .modal {
+    background: var(--paper); width: 100%; max-width: 540px;
+    border-radius: var(--r-lg); border: 1px solid var(--line);
+    overflow: hidden;
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,0.4);
+    animation: pop .2s ease-out;
+  }
+  @keyframes pop { from { transform: scale(.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .modal header {
+    padding: 20px 24px;
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 14px;
+  }
+  .modal header div { flex: 1; }
+  .modal header h4 {
+    margin: 0 0 4px; font-family: 'Fraunces', serif; font-weight: 500; font-size: 20px;
+  }
+  .modal header p { margin: 0; font-size: 13px; color: var(--ink-3); line-height: 1.5; }
+  .modal .x {
+    background: none; border: none; cursor: pointer;
+    color: var(--ink-3); font-size: 20px; line-height: 1;
+    width: 28px; height: 28px; border-radius: 999px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .modal .x:hover { background: var(--paper-2); color: var(--ink); }
+
+  .link-box {
+    margin: 0 24px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    display: flex; align-items: center; gap: 0;
+    overflow: hidden;
+  }
+  .link-box .url {
+    flex: 1; padding: 13px 16px;
+    font: 400 13px/1.4 'Inter', sans-serif;
+    color: var(--ink-2);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .link-box button {
+    appearance: none; border: none; background: var(--ink); color: var(--paper);
+    padding: 13px 18px; cursor: pointer; font: 500 12.5px/1 'Inter', sans-serif;
+    border-left: 1px solid var(--ink); height: 100%;
+  }
+  .link-box button:hover { background: var(--brand); }
+
+  .share-grid {
+    padding: 16px 24px 0;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+  }
+  .share-btn {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    padding: 16px 8px;
+    border: 1px solid var(--line); border-radius: var(--r-md);
+    background: var(--white); cursor: pointer; text-decoration: none;
+    color: var(--ink); font: 500 12px/1 'Inter', sans-serif;
+    transition: all .15s ease;
+  }
+  .share-btn:hover { border-color: var(--ink); transform: translateY(-1px); box-shadow: 0 4px 12px -4px rgba(0,0,0,0.1); }
+  .share-btn .icon-wrap {
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+  }
+  .share-btn.wa .icon-wrap { background: #25D366; }
+  .share-btn.tg .icon-wrap { background: #229ED9; }
+  .share-btn.email .icon-wrap { background: var(--brand); }
+  .share-btn.linkedin .icon-wrap { background: #0A66C2; }
+  .share-btn .icon-wrap svg { width: 20px; height: 20px; }
+
+  .modal footer {
+    padding: 16px 24px 22px;
+    margin-top: 12px;
+    font-size: 12px; color: var(--ink-3); text-align: center;
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .page { margin: 0; border-radius: 0; border: none; }
+    .masthead, .sec-head, .hero, .grid, .footer { padding-left: 22px; padding-right: 22px; }
+    .pull { margin-left: 22px; margin-right: 22px; padding: 28px 24px; }
+    .rule, .rule.tri { margin-left: 22px; margin-right: 22px; }
+    .mast-title { font-size: 36px; }
+    .hero h2 { font-size: 26px; }
+    .article-row { grid-template-columns: 1fr; gap: 8px; padding: 20px 0; }
+    .article-num { padding-top: 0; display: flex; gap: 10px; align-items: center; }
+    .article-num .num { display: inline; margin: 0; }
+    .article-arrow { display: none; }
+    .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+    .toolbar { padding: 10px 14px; }
+    .toolbar .meta { font-size: 11.5px; }
+    .toolbar .actions .btn span:not(.ico-text) { display: none; }
+    .share-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; }
+    .toolbar, .modal-back, .toast { display: none !important; }
+    .page { margin: 0; box-shadow: none; border: none; max-width: none; border-radius: 0; }
+    a { color: var(--ink) !important; }
+  }
+</style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="application/json" id="newsletter-data">
+{
+  "issue": "N° 1",
+  "date": "26 aprile 2026",
+  "dateShort": "26.04.2026",
+  "publicUrl": "https://fidaiisf.vercel.app/editions/2026-04-26/",
+  "lead": {
+    "kicker": "In primo piano",
+    "label": "Cosmofarma 2026",
+    "title": "iFarma. Il Convegno: Informatori scientifici e la sfida dell'AI",
+    "deck": "A Cosmofarma 2026 un confronto promosso da Fedaiisf sull'impatto dell'intelligenza artificiale nell'informazione scientifica del farmaco. Professionisti e istituzioni si interrogano su come tenere insieme rigore deontologico e nuove tecnologie, in un momento in cui il ruolo dell'Informatore scientifico viene ridisegnato.",
+    "source": "Fedaiisf",
+    "date": "27 aprile 2026",
+    "url": "https://www.fedaiisf.it/ifarma-il-covegno-informatori-scientifici-e-la-sfida-dellai/",
+    "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/Cosmofarma-2026.png",
+    "imageLabel": "Cosmofarma 2026 — Bologna"
+  },
+  "articles": [
+    {
+      "category": "Industria",
+      "categoryColor": "blue",
+      "title": "MSD punta sull'AI agentica",
+      "summary": "MSD firma un'intesa fino a un miliardo di dollari con Google Cloud per accelerare lo sviluppo dei farmaci. L'AI agentica diventa leva industriale e ridefinisce gli equilibri della ricerca farmaceutica.",
+      "source": "Pharmastar",
+      "date": "23 aprile 2026",
+      "url": "https://www.fedaiisf.it/msd-punta-sullai-agentica/"
+    },
+    {
+      "category": "Politica sanitaria",
+      "categoryColor": "red",
+      "title": "Egualia. Allarme farmaceutica pubblica: rischio di maggiori oneri per i cittadini",
+      "summary": "Egualia segnala il rischio che la legge di bilancio 2026 riveda la lista dei farmaci concedibili da AIFA. La conseguenza temuta è uno scivolamento dei costi dal sistema pubblico ai cittadini.",
+      "source": "Egualia",
+      "date": "23 aprile 2026",
+      "url": "https://www.fedaiisf.it/egualia-allarme-farmaceutica-pubblica-rischio-di-maggiori-oneri-per-i-cittadini/"
+    },
+    {
+      "category": "Professione",
+      "categoryColor": "green",
+      "title": "Informatori scientifici, AI e terapie personalizzate ridisegnano la professione",
+      "summary": "Intelligenza artificiale, medicina di precisione e nuovi modelli di informazione al centro del confronto Fedaiisf a Cosmofarma. La professione dell'Informatore scientifico del farmaco si riposiziona nel rapporto con medico e paziente.",
+      "source": "Farmacista33",
+      "date": "23 aprile 2026",
+      "url": "https://www.fedaiisf.it/informatori-scientifici-ai-e-terapie-personalizzate-ridisegnano-la-professione-il-confronto-a-cosmofarma/"
+    },
+    {
+      "category": "Professione",
+      "categoryColor": "green",
+      "title": "I nostri lutti. Ci ha lasciato Umberto Baraldi, storica figura dell'AIISF bolognese",
+      "summary": "Si è spento Umberto Baraldi, associato ANCSIF dal 1971 e riferimento per la sezione bolognese. La sua attività ha accompagnato generazioni di Informatori scientifici del farmaco.",
+      "source": "Fedaiisf",
+      "date": "26 aprile 2026",
+      "url": "https://www.fedaiisf.it/i-nostri-lutti-ci-ha-lasciato-umberto-baraldi-storica-figura-dellaiisf-bolognese/"
+    },
+    {
+      "category": "Norme",
+      "categoryColor": "blue",
+      "title": "I medici di famiglia possono restare in servizio fino a 73 anni",
+      "summary": "Il decreto legge PNRR pubblicato in Gazzetta Ufficiale alza a 73 anni il limite di età per i medici di medicina generale. La misura punta a contenere la carenza di MMG nei territori.",
+      "source": "Gazzetta Ufficiale",
+      "date": "22 aprile 2026",
+      "url": "https://www.fedaiisf.it/i-medici-di-famiglia-possono-restare-in-servizio-fino-a-73-anni/"
+    },
+    {
+      "category": "AIFA",
+      "categoryColor": "red",
+      "title": "AIFA pubblica il Rapporto regionale sull'uso dei farmaci",
+      "summary": "AIFA pubblica i Rapporti regionali 2024 sull'uso dei farmaci. L'analisi orienta le politiche sanitarie territoriali e misura l'appropriatezza prescrittiva, dato chiave per il dialogo con prescrittori e farmacisti.",
+      "source": "AIFA",
+      "date": "21 aprile 2026",
+      "url": "https://www.fedaiisf.it/aifa-pubblica-il-rapporto-regionale-sulluso-dei-farmaci/"
+    }
+  ],
+  "pull": {
+    "text": "L'intelligenza artificiale e la medicina di precisione ridisegnano il ruolo dell'Informatore scientifico del farmaco.",
+    "cite": "Convegno Fedaiisf — Cosmofarma 2026"
+  }
+}
+  </script>
+
+  <script type="text/babel" data-presets="env,react">
+  const { useState, useMemo } = React;
+  const DATA = JSON.parse(document.getElementById('newsletter-data').textContent);
+
+  const Icon = {
+    link: <svg className="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>,
+    share: <svg className="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>,
+    arrow: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>,
+    check: <svg className="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>,
+    copy: <svg className="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>,
+  };
+
+  function App() {
+    const [toast, setToast] = useState(null);
+    const [shareOpen, setShareOpen] = useState(false);
+
+    const showToast = (msg) => {
+      setToast(msg);
+      setTimeout(() => setToast(null), 2200);
+    };
+
+    const copyLink = async (url, label = 'Link copiato negli appunti') => {
+      try {
+        await navigator.clipboard.writeText(url);
+        showToast(label);
+      } catch {
+        const ta = document.createElement('textarea');
+        ta.value = url; document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); showToast(label); } catch {}
+        ta.remove();
+      }
+    };
+
+    const subject = `Newsletter Fedaiisf — ${DATA.dateShort}`;
+    const intro = `${DATA.lead.title}. ${DATA.lead.deck.split('.')[0]}.`;
+    const shareMsg = `${subject}\n${intro}\nLeggi online: ${DATA.publicUrl}`;
+
+    const waUrl = `https://wa.me/?text=${encodeURIComponent(shareMsg)}`;
+    const tgUrl = `https://t.me/share/url?url=${encodeURIComponent(DATA.publicUrl)}&text=${encodeURIComponent(subject)}`;
+    const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(DATA.publicUrl)}`;
+    const mailUrl = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(intro + '\n\nLeggi online: ' + DATA.publicUrl)}`;
+
+    return (
+      <div>
+        <div className="page">
+          {/* Toolbar */}
+          <div className="toolbar">
+            <div className="meta">
+              <span className="dot"></span>
+              <span>Edizione settimanale · {DATA.issue}</span>
+            </div>
+            <div className="actions">
+              <button className="btn ghost" onClick={() => copyLink(DATA.publicUrl)} title="Copia link della newsletter">
+                {Icon.link} <span>Copia link</span>
+              </button>
+              <button className="btn" onClick={() => setShareOpen(true)} title="Condividi">
+                {Icon.share} <span>Condividi</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Masthead */}
+          <header className="masthead">
+            <div className="masthead-top">
+              <div className="mast-logo">
+                <img src="assets/logo-fedaiisf.png" alt="Fedaiisf" />
+              </div>
+              <div className="mast-issue">
+                <div><strong>{DATA.issue}</strong></div>
+                <div>{DATA.date}</div>
+              </div>
+            </div>
+
+            <h1 className="mast-title">
+              La <em>settimanale</em><br/>dell'informazione scientifica
+            </h1>
+            <p className="mast-sub">
+              Notizie, analisi e documenti per l'Informatore scientifico del farmaco. A cura della redazione Fedaiisf, una sintesi dei contenuti pubblicati su fedaiisf.it.
+            </p>
+          </header>
+
+          <div className="rule tri" />
+
+          {/* Hero */}
+          <div className="sec-head">
+            <div>
+              <div className="sec-kicker">{DATA.lead.kicker}</div>
+              <h2 className="sec-title">In apertura</h2>
+            </div>
+            <div className="sec-count">{DATA.lead.date}</div>
+          </div>
+
+          <article className="hero">
+            <div className="visual">
+              {DATA.lead.image
+                ? <img src={DATA.lead.image} alt={DATA.lead.imageLabel || DATA.lead.title} />
+                : <span className="v-label">{DATA.lead.imageLabel || 'Immagine articolo'}</span>}
+            </div>
+            <span className="label">{DATA.lead.label}</span>
+            <h2><a href={DATA.lead.url} target="_blank" rel="noopener">{DATA.lead.title}</a></h2>
+            <p className="deck">{DATA.lead.deck}</p>
+            <div className="meta-row">
+              <span>Fonte · {DATA.lead.source}</span>
+              <span className="sep">·</span>
+              <a className="read" href={DATA.lead.url} target="_blank" rel="noopener">Leggi l'articolo →</a>
+            </div>
+          </article>
+
+          <div className="rule" />
+
+          {/* Articles */}
+          <div className="sec-head">
+            <div>
+              <div className="sec-kicker">Le altre letture</div>
+              <h2 className="sec-title">Notizie della settimana</h2>
+            </div>
+            <div className="sec-count">{DATA.articles.length} articoli</div>
+          </div>
+
+          <div className="grid">
+            {DATA.articles.map((a, i) => (
+              <div key={i} className="article-row">
+                <div className="article-num">
+                  <span className="num">N° {String(i + 1).padStart(2, '0')}</span>
+                  <span className={`cat-tag ${a.categoryColor}`}>{a.category}</span>
+                </div>
+                <div className="article-body">
+                  <h3><a href={a.url} target="_blank" rel="noopener">{a.title}</a></h3>
+                  <p>{a.summary}</p>
+                  <div className="meta-line">
+                    <span>{a.source}</span>
+                    <span className="sep">·</span>
+                    <span>{a.date}</span>
+                    <span className="sep">·</span>
+                    <a href={a.url} target="_blank" rel="noopener">Leggi su fedaiisf.it</a>
+                  </div>
+                </div>
+                <a className="article-arrow" href={a.url} target="_blank" rel="noopener" aria-label="Leggi l'articolo">{Icon.arrow}</a>
+              </div>
+            ))}
+          </div>
+
+          {/* Pull quote */}
+          <div className="pull">
+            <blockquote>«{DATA.pull.text}»</blockquote>
+            <cite>— {DATA.pull.cite}</cite>
+          </div>
+
+          {/* Footer */}
+          <footer className="footer">
+            <div className="footer-grid">
+              <div>
+                <h5>Fedaiisf</h5>
+                <p>Federazione delle Associazioni italiane degli Informatori scientifici del farmaco e del parafarmaco. Promuoviamo la coesione tra gli associati e una visione condivisa dei temi della professione.</p>
+              </div>
+              <div>
+                <h5>Sezioni</h5>
+                <ul>
+                  <li><a href="https://www.fedaiisf.it/category/notizie/">Notizie</a></li>
+                  <li><a href="https://www.fedaiisf.it/category/news/primo-piano/">Primo piano</a></li>
+                  <li><a href="https://www.fedaiisf.it/centro-documentazione/">Documentazione</a></li>
+                  <li><a href="https://www.fedaiisf.it/category/delibere/">Delibere</a></li>
+                </ul>
+              </div>
+              <div>
+                <h5>Contatti</h5>
+                <ul>
+                  <li><a href="https://www.fedaiisf.it/contatti/">Modulo contatti</a></li>
+                  <li><a href="https://www.fedaiisf.it/iscrizione-associazioni-federate-fedaiisf/">Iscrizione</a></li>
+                  <li><a href="https://www.fedaiisf.it/ricerca-sezioni-fedaiisf/">Territorio</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="colophon">
+              <div>© 2026 Fedaiisf · CF 91011770293</div>
+              <div className="socials">
+                <a href="https://www.facebook.com/fedaiisf.it/">Facebook</a>
+                <a href="https://twitter.com/fedaiisf">X</a>
+                <a href="https://www.linkedin.com/company/fedaiisf-isf/">LinkedIn</a>
+                <a href="https://www.instagram.com/fedaiisf2025/">Instagram</a>
+              </div>
+            </div>
+          </footer>
+        </div>
+
+        {/* Toast */}
+        <div className={`toast ${toast ? 'show' : ''}`}>
+          {Icon.check}
+          <span>{toast}</span>
+        </div>
+
+        {/* Share modal */}
+        <div className={`modal-back ${shareOpen ? 'open' : ''}`} onClick={(e) => { if (e.target.className.includes('modal-back')) setShareOpen(false); }}>
+          <div className="modal">
+            <header>
+              <div>
+                <h4>Condividi questa newsletter</h4>
+                <p>Invia il link a colleghi e iscritti. Si apre nel browser e include tutti i contenuti.</p>
+              </div>
+              <button className="x" onClick={() => setShareOpen(false)} aria-label="Chiudi">✕</button>
+            </header>
+
+            <div className="link-box">
+              <div className="url">{DATA.publicUrl}</div>
+              <button onClick={() => copyLink(DATA.publicUrl, 'Link copiato')}>Copia</button>
+            </div>
+
+            <div className="share-grid">
+              <a className="share-btn wa" href={waUrl} target="_blank" rel="noopener">
+                <span className="icon-wrap"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg></span>
+                WhatsApp
+              </a>
+              <a className="share-btn tg" href={tgUrl} target="_blank" rel="noopener">
+                <span className="icon-wrap"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></span>
+                Telegram
+              </a>
+              <a className="share-btn linkedin" href={linkedinUrl} target="_blank" rel="noopener">
+                <span className="icon-wrap"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.063 2.063 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span>
+                LinkedIn
+              </a>
+              <a className="share-btn email" href={mailUrl}>
+                <span className="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+                Email
+              </a>
+            </div>
+
+            <footer>
+              Il link porta direttamente alla newsletter pubblicata online.
+            </footer>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{
+  "issue": "N° 1",
+  "date": "26 aprile 2026",
+  "dateShort": "26.04.2026",
+  "publicUrl": "https://fidaiisf.vercel.app/editions/2026-04-26/",
+  "lead": {
+    "kicker": "In primo piano",
+    "label": "Cosmofarma 2026",
+    "title": "iFarma. Il Convegno: Informatori scientifici e la sfida dell'AI",
+    "deck": "A Cosmofarma 2026 un confronto promosso da Fedaiisf sull'impatto dell'intelligenza artificiale nell'informazione scientifica del farmaco. Professionisti e istituzioni si interrogano su come tenere insieme rigore deontologico e nuove tecnologie, in un momento in cui il ruolo dell'Informatore scientifico viene ridisegnato.",
+    "source": "Fedaiisf",
+    "date": "27 aprile 2026",
+    "url": "https://www.fedaiisf.it/ifarma-il-covegno-informatori-scientifici-e-la-sfida-dellai/",
+    "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/Cosmofarma-2026.png",
+    "imageLabel": "Cosmofarma 2026 — Bologna"
+  },
+  "articles": [
+    {
+      "category": "Industria",
+      "categoryColor": "blue",
+      "title": "MSD punta sull'AI agentica",
+      "summary": "MSD firma un'intesa fino a un miliardo di dollari con Google Cloud per accelerare lo sviluppo dei farmaci. L'AI agentica diventa leva industriale e ridefinisce gli equilibri della ricerca farmaceutica.",
+      "source": "Pharmastar",
+      "date": "23 aprile 2026",
+      "url": "https://www.fedaiisf.it/msd-punta-sullai-agentica/"
+    },
+    {
+      "category": "Politica sanitaria",
+      "categoryColor": "red",
+      "title": "Egualia. Allarme farmaceutica pubblica: rischio di maggiori oneri per i cittadini",
+      "summary": "Egualia segnala il rischio che la legge di bilancio 2026 riveda la lista dei farmaci concedibili da AIFA. La conseguenza temuta è uno scivolamento dei costi dal sistema pubblico ai cittadini.",
+      "source": "Egualia",
+      "date": "23 aprile 2026",
+      "url": "https://www.fedaiisf.it/egualia-allarme-farmaceutica-pubblica-rischio-di-maggiori-oneri-per-i-cittadini/"
+    },
+    {
+      "category": "Professione",
+      "categoryColor": "green",
+      "title": "Informatori scientifici, AI e terapie personalizzate ridisegnano la professione",
+      "summary": "Intelligenza artificiale, medicina di precisione e nuovi modelli di informazione al centro del confronto Fedaiisf a Cosmofarma. La professione dell'Informatore scientifico del farmaco si riposiziona nel rapporto con medico e paziente.",
+      "source": "Farmacista33",
+      "date": "23 aprile 2026",
+      "url": "https://www.fedaiisf.it/informatori-scientifici-ai-e-terapie-personalizzate-ridisegnano-la-professione-il-confronto-a-cosmofarma/"
+    },
+    {
+      "category": "Professione",
+      "categoryColor": "green",
+      "title": "I nostri lutti. Ci ha lasciato Umberto Baraldi, storica figura dell'AIISF bolognese",
+      "summary": "Si è spento Umberto Baraldi, associato ANCSIF dal 1971 e riferimento per la sezione bolognese. La sua attività ha accompagnato generazioni di Informatori scientifici del farmaco.",
+      "source": "Fedaiisf",
+      "date": "26 aprile 2026",
+      "url": "https://www.fedaiisf.it/i-nostri-lutti-ci-ha-lasciato-umberto-baraldi-storica-figura-dellaiisf-bolognese/"
+    },
+    {
+      "category": "Norme",
+      "categoryColor": "blue",
+      "title": "I medici di famiglia possono restare in servizio fino a 73 anni",
+      "summary": "Il decreto legge PNRR pubblicato in Gazzetta Ufficiale alza a 73 anni il limite di età per i medici di medicina generale. La misura punta a contenere la carenza di MMG nei territori.",
+      "source": "Gazzetta Ufficiale",
+      "date": "22 aprile 2026",
+      "url": "https://www.fedaiisf.it/i-medici-di-famiglia-possono-restare-in-servizio-fino-a-73-anni/"
+    },
+    {
+      "category": "AIFA",
+      "categoryColor": "red",
+      "title": "AIFA pubblica il Rapporto regionale sull'uso dei farmaci",
+      "summary": "AIFA pubblica i Rapporti regionali 2024 sull'uso dei farmaci. L'analisi orienta le politiche sanitarie territoriali e misura l'appropriatezza prescrittiva, dato chiave per il dialogo con prescrittori e farmacisti.",
+      "source": "AIFA",
+      "date": "21 aprile 2026",
+      "url": "https://www.fedaiisf.it/aifa-pubblica-il-rapporto-regionale-sulluso-dei-farmaci/"
+    }
+  ],
+  "pull": {
+    "text": "L'intelligenza artificiale e la medicina di precisione ridisegnano il ruolo dell'Informatore scientifico del farmaco.",
+    "cite": "Convegno Fedaiisf — Cosmofarma 2026"
+  }
+}

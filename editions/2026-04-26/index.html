@@ -89,7 +89,16 @@
     color: var(--ink);
     text-wrap: balance;
   }
-  .mast-title em { font-style: normal; color: var(--brand); font-weight: 300; }
+  .mast-title em {
+    font-style: normal;
+    font-weight: 400;
+    color: var(--ink);
+    background-image: linear-gradient(var(--brand), var(--brand));
+    background-size: 100% 2px;
+    background-repeat: no-repeat;
+    background-position: 0 calc(100% - 4px);
+    padding-bottom: 4px;
+  }
   .mast-sub {
     margin-top: 14px;
     font-size: 14px;
@@ -100,20 +109,32 @@
 
   .rule { height: 1px; background: var(--line); margin: 0 48px; }
   .rule.tri {
-    height: 14px;
-    margin: 18px 48px 0;
+    height: 22px;
+    margin: 24px 48px 8px;
     background: none;
     position: relative;
   }
   .rule.tri::before {
     content: ""; position: absolute; left: 0; right: 0; top: 50%;
-    height: 1px; background: var(--line);
+    height: 1px;
+    background: linear-gradient(to right,
+      transparent 0%,
+      var(--line) 14%,
+      var(--line) 86%,
+      transparent 100%);
   }
-  .rule.tri::after {
-    content: ""; position: absolute;
-    left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(45deg);
-    width: 6px; height: 6px; background: var(--brand);
-    box-shadow: 0 0 0 5px var(--paper);
+  .rule.tri span {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -52%);
+    background: var(--paper);
+    padding: 0 18px;
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    color: var(--brand);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.42em;
+    user-select: none;
   }
 
   /* Section */
@@ -227,16 +248,24 @@
   }
   .article-num .num { color: var(--ink-2); }
   .cat-tag {
-    display: inline-block;
-    padding: 4px 10px; border-radius: var(--r-pill);
-    font-size: 11px; font-weight: 500;
-    background: var(--brand-soft); color: var(--brand-deep);
-    margin-bottom: 10px;
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 0; background: none;
+    font-size: 10.5px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-2);
+    margin-bottom: 12px;
     white-space: nowrap;
   }
-  .cat-tag.red { background: #FBE9EB; color: var(--accent-red); }
-  .cat-tag.green { background: #E5F1EB; color: var(--accent-green); }
-  .cat-tag.blue { background: var(--brand-soft); color: var(--brand-deep); }
+  .cat-tag::before {
+    content: ""; display: inline-block;
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--brand);
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px rgba(11,79,160,0.10);
+  }
+  .cat-tag.red::before { background: var(--accent-red); box-shadow: 0 0 0 3px rgba(183,32,46,0.10); }
+  .cat-tag.green::before { background: var(--accent-green); box-shadow: 0 0 0 3px rgba(27,122,76,0.10); }
+  .cat-tag.blue::before { background: var(--brand); box-shadow: 0 0 0 3px rgba(11,79,160,0.10); }
 
   .article-body h3 {
     font-family: 'Fraunces', serif;
@@ -638,7 +667,7 @@
             </p>
           </header>
 
-          <div className="rule tri" />
+          <div className="rule tri"><span>* * *</span></div>
 
           {/* Hero */}
           <div className="sec-head">

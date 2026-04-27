@@ -89,7 +89,7 @@
     color: var(--ink);
     text-wrap: balance;
   }
-  .mast-title em { font-style: italic; color: var(--brand); font-weight: 300; }
+  .mast-title em { font-style: normal; color: var(--brand); font-weight: 300; }
   .mast-sub {
     margin-top: 14px;
     font-size: 14px;
@@ -100,12 +100,20 @@
 
   .rule { height: 1px; background: var(--line); margin: 0 48px; }
   .rule.tri {
-    height: 4px;
-    background: linear-gradient(to right,
-      var(--accent-green) 0 33.33%,
-      var(--paper) 33.33% 66.66%,
-      var(--accent-red) 66.66% 100%);
-    margin: 0 48px;
+    height: 14px;
+    margin: 18px 48px 0;
+    background: none;
+    position: relative;
+  }
+  .rule.tri::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 50%;
+    height: 1px; background: var(--line);
+  }
+  .rule.tri::after {
+    content: ""; position: absolute;
+    left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(45deg);
+    width: 6px; height: 6px; background: var(--brand);
+    box-shadow: 0 0 0 5px var(--paper);
   }
 
   /* Section */
@@ -206,22 +214,25 @@
   .grid { padding: 0 48px 28px; }
   .article-row {
     display: grid;
-    grid-template-columns: 70px 1fr auto;
+    grid-template-columns: 48px 1fr auto;
     gap: 20px; padding: 24px 0;
     border-top: 1px solid var(--line);
     align-items: baseline;
   }
   .article-row:last-child { border-bottom: 1px solid var(--line); }
   .article-num {
-    font-size: 12px; color: var(--ink-3);
-    padding-top: 4px; line-height: 1.4;
+    font-size: 11.5px; color: var(--ink-3);
+    padding-top: 6px; line-height: 1.4;
+    font-weight: 500; letter-spacing: 0.04em;
   }
-  .article-num .num { font-weight: 500; color: var(--ink-2); display: block; margin-bottom: 6px; }
+  .article-num .num { color: var(--ink-2); }
   .cat-tag {
     display: inline-block;
-    padding: 3px 9px; border-radius: var(--r-pill);
+    padding: 4px 10px; border-radius: var(--r-pill);
     font-size: 11px; font-weight: 500;
     background: var(--brand-soft); color: var(--brand-deep);
+    margin-bottom: 10px;
+    white-space: nowrap;
   }
   .cat-tag.red { background: #FBE9EB; color: var(--accent-red); }
   .cat-tag.green { background: #E5F1EB; color: var(--accent-green); }
@@ -670,9 +681,9 @@
               <div key={i} className="article-row">
                 <div className="article-num">
                   <span className="num">N° {String(i + 1).padStart(2, '0')}</span>
-                  <span className={`cat-tag ${a.categoryColor}`}>{a.category}</span>
                 </div>
                 <div className="article-body">
+                  <span className={`cat-tag ${a.categoryColor}`}>{a.category}</span>
                   <h3><a href={a.url} target="_blank" rel="noopener">{a.title}</a></h3>
                   <p>{a.summary}</p>
                   <div className="meta-line">

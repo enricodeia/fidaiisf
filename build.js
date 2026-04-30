@@ -30,8 +30,8 @@ const meta = [
   `<title>${escape(pageTitle)}</title>`,
   `<meta name="description" content="${escape(description)}" />`,
   `<meta name="author" content="Fedaiisf" />`,
-  `<link rel="icon" type="image/png" href="assets/Logo.png" />`,
-  `<link rel="apple-touch-icon" href="assets/Logo.png" />`,
+  `<link rel="icon" type="image/png" href="assets/logo-fedaiisf.png" />`,
+  `<link rel="apple-touch-icon" href="assets/logo-fedaiisf.png" />`,
   `<meta property="og:type" content="article" />`,
   `<meta property="og:site_name" content="Fedaiisf — Newsletter settimanale" />`,
   `<meta property="og:title" content="${escape(pageTitle)}" />`,
@@ -61,7 +61,6 @@ out = out.replace(
 
 mkdirSync(join(editionDir, 'assets'), { recursive: true });
 copyFileSync('assets/logo-fedaiisf.png', join(editionDir, 'assets/logo-fedaiisf.png'));
-copyFileSync('assets/Logo.png', join(editionDir, 'assets/Logo.png'));
 writeFileSync(join(editionDir, 'index.html'), out);
 
 console.log(`✓ Edizione generata: ${editionDir}/index.html`);

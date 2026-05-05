@@ -73,5 +73,10 @@
   "pull": {
     "text": "L'intelligenza artificiale e la medicina di precisione ridisegnano il ruolo dell'Informatore scientifico del farmaco.",
     "cite": "Convegno Fedaiisf — Cosmofarma 2026"
-  }
+  },
+  "comitato": [
+    { "name": "Da definire", "role": "Direttore responsabile" },
+    { "name": "Da definire", "role": "Coordinamento editoriale" },
+    { "name": "Da definire", "role": "Redazione" }
+  ]
 }

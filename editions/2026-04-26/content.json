@@ -1,7 +1,7 @@
 {
-  "issue": "N° 1",
-  "date": "26 aprile 2026",
-  "dateShort": "26.04.2026",
+  "issue": "N° 52",
+  "date": "Aprile 2026",
+  "dateShort": "Aprile 2026",
   "publicUrl": "https://fidaiisf.vercel.app/editions/2026-04-26/",
   "lead": {
     "kicker": "In primo piano",
@@ -74,9 +74,16 @@
     "text": "L'intelligenza artificiale e la medicina di precisione ridisegnano il ruolo dell'Informatore scientifico del farmaco.",
     "cite": "Convegno Fedaiisf — Cosmofarma 2026"
   },
-  "comitato": [
-    { "name": "Da definire", "role": "Direttore responsabile" },
-    { "name": "Da definire", "role": "Coordinamento editoriale" },
-    { "name": "Da definire", "role": "Redazione" }
-  ]
+  "comitato": {
+    "groups": [
+      {
+        "label": "Direzione",
+        "names": ["Francesco Ferrari", "Riccardo Bevilacqua"]
+      },
+      {
+        "label": "Redazione",
+        "names": ["Angelo Dazzi", "Andrea Deiana", "Valeria Noce", "Carmen Praticò", "Raffaele Procopio", "Nicole Righi", "Antonio Scano"]
+      }
+    ]
+  }
 }

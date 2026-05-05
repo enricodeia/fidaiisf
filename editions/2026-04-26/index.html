@@ -367,10 +367,14 @@
   }
   .footer-grid:has(> div:nth-child(4)) { grid-template-columns: 1.6fr 1fr 1fr 1.4fr; }
   .footer-grid:not(:has(> div:nth-child(4))) { grid-template-columns: 2fr 1fr 1fr; }
+  .comitato-group + .comitato-group { margin-top: 14px; }
+  .comitato-group .c-label {
+    font-size: 10px; color: var(--ink-3);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 600; margin-bottom: 6px;
+  }
   .comitato-list { font-size: 12.5px; }
-  .comitato-list li { display: flex; flex-direction: column; gap: 1px; margin-bottom: 8px; }
-  .comitato-list .c-name { color: var(--ink); font-weight: 500; }
-  .comitato-list .c-role { color: var(--ink-2); opacity: 0.7; font-size: 11.5px; }
+  .comitato-list li { color: var(--ink); margin-bottom: 3px; line-height: 1.4; }
   .footer-grid h5 {
     font-size: 11px; color: var(--ink);
     margin: 0 0 12px; font-weight: 600;
@@ -538,9 +542,9 @@
 
   <script type="application/json" id="newsletter-data">
 {
-  "issue": "N° 1",
-  "date": "26 aprile 2026",
-  "dateShort": "26.04.2026",
+  "issue": "N° 52",
+  "date": "Aprile 2026",
+  "dateShort": "Aprile 2026",
   "publicUrl": "https://fidaiisf.vercel.app/editions/2026-04-26/",
   "lead": {
     "kicker": "In primo piano",
@@ -613,11 +617,18 @@
     "text": "L'intelligenza artificiale e la medicina di precisione ridisegnano il ruolo dell'Informatore scientifico del farmaco.",
     "cite": "Convegno Fedaiisf — Cosmofarma 2026"
   },
-  "comitato": [
-    { "name": "Da definire", "role": "Direttore responsabile" },
-    { "name": "Da definire", "role": "Coordinamento editoriale" },
-    { "name": "Da definire", "role": "Redazione" }
-  ]
+  "comitato": {
+    "groups": [
+      {
+        "label": "Direzione",
+        "names": ["Francesco Ferrari", "Riccardo Bevilacqua"]
+      },
+      {
+        "label": "Redazione",
+        "names": ["Angelo Dazzi", "Andrea Deiana", "Valeria Noce", "Carmen Praticò", "Raffaele Procopio", "Nicole Righi", "Antonio Scano"]
+      }
+    ]
+  }
 }
   </script>
 
@@ -800,22 +811,23 @@
               <div>
                 <h5>Contatti</h5>
                 <ul>
+                  <li><a href="mailto:redazione@fedaiisf.it">Scrivi alla redazione</a></li>
                   <li><a href="https://www.fedaiisf.it/contatti/">Modulo contatti</a></li>
                   <li><a href="https://www.fedaiisf.it/iscrizione-associazioni-federate-fedaiisf/">Iscrizione</a></li>
                   <li><a href="https://www.fedaiisf.it/ricerca-sezioni-fedaiisf/">Territorio</a></li>
                 </ul>
               </div>
-              {DATA.comitato && DATA.comitato.length > 0 && (
+              {DATA.comitato && DATA.comitato.groups && DATA.comitato.groups.length > 0 && (
                 <div>
                   <h5>Comitato editoriale</h5>
-                  <ul className="comitato-list">
-                    {DATA.comitato.map((m, i) => (
-                      <li key={i}>
-                        <span className="c-name">{m.name}</span>
-                        {m.role && <span className="c-role">{m.role}</span>}
-                      </li>
-                    ))}
-                  </ul>
+                  {DATA.comitato.groups.map((g, i) => (
+                    <div key={i} className="comitato-group">
+                      <div className="c-label">{g.label}</div>
+                      <ul className="comitato-list">
+                        {g.names.map((n, j) => <li key={j}>{n}</li>)}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
               )}
             </div>

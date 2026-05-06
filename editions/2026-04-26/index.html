@@ -220,7 +220,7 @@
     grid-template-columns: 150px 1fr;
     gap: 22px;
     padding: 22px;
-    background: #FBF4DE;
+    background: #FFFAEB;
     border: 1px solid rgba(139,31,44,0.10);
     border-radius: 18px;
     text-decoration: none; color: inherit;
@@ -565,6 +565,34 @@
     .share-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
+  /* Reveal on load + on scroll */
+  .fade-load {
+    animation: fade-load .8s cubic-bezier(.2,.6,.2,1) var(--load-delay, 0ms) both;
+  }
+  @keyframes fade-load {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .tri-reveal {
+    animation: tri-reveal .9s cubic-bezier(.6,.1,.2,1) 300ms both;
+  }
+  @keyframes tri-reveal {
+    from { clip-path: inset(0 100% 0 0); }
+    to   { clip-path: inset(0 0 0 0); }
+  }
+  [data-reveal] { opacity: 0; transform: translateY(14px); }
+  [data-reveal].in {
+    animation: reveal-in .7s cubic-bezier(.2,.6,.2,1) var(--reveal-delay, 0ms) both;
+  }
+  @keyframes reveal-in {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fade-load, .tri-reveal { animation: none !important; opacity: 1 !important; transform: none !important; }
+    [data-reveal] { opacity: 1 !important; transform: none !important; animation: none !important; }
+  }
+
   /* Print */
   @media print {
     body { background: white; }
@@ -676,7 +704,7 @@
   </script>
 
   <script type="text/babel" data-presets="env,react">
-  const { useState, useMemo } = React;
+  const { useState, useMemo, useEffect } = React;
   const DATA = JSON.parse(document.getElementById('newsletter-data').textContent);
 
   const Icon = {
@@ -690,6 +718,25 @@
   function App() {
     const [toast, setToast] = useState(null);
     const [shareOpen, setShareOpen] = useState(false);
+
+    useEffect(() => {
+      const els = document.querySelectorAll('[data-reveal]');
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!('IntersectionObserver' in window) || reduce) {
+        els.forEach(el => el.classList.add('in'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(el => io.observe(el));
+      return () => io.disconnect();
+    }, []);
 
     const showToast = (msg) => {
       setToast(msg);
@@ -737,7 +784,7 @@
           </div>
 
           {/* Masthead */}
-          <header className="masthead">
+          <header className="masthead fade-load">
             <div className="masthead-top">
               <div className="mast-logo">
                 <a href="https://www.fedaiisf.it" target="_blank" rel="noopener" aria-label="Vai a fedaiisf.it">
@@ -758,7 +805,7 @@
             </p>
           </header>
 
-          <div className="rule tri" />
+          <div className="rule tri tri-reveal" />
 
           {/* Hero */}
           <div className="sec-head">
@@ -769,7 +816,7 @@
             <div className="sec-count">{DATA.lead.date}</div>
           </div>
 
-          <article className="hero">
+          <article className="hero fade-load" style={{ '--load-delay': '250ms' }}>
             <div className="visual">
               {DATA.lead.image
                 ? <img src={DATA.lead.image} alt={DATA.lead.imageLabel || DATA.lead.title} />
@@ -798,7 +845,7 @@
             {DATA.articles.map((a, i) => (
               <React.Fragment key={i}>
                 {i > 0 && <div className="divider-red" aria-hidden="true"></div>}
-                <a className={`article-card ${a.image ? '' : 'no-image'}`} href={a.url} target="_blank" rel="noopener">
+                <a className={`article-card ${a.image ? '' : 'no-image'}`} href={a.url} target="_blank" rel="noopener" data-reveal="" style={{ '--reveal-delay': `${i * 70}ms` }}>
                   {a.image && (
                     <div className="article-image">
                       <img src={a.image} alt="" loading="lazy" />
@@ -824,7 +871,7 @@
           </div>
 
           {/* Pull quote */}
-          <div className="pull">
+          <div className="pull" data-reveal="">
             <div className="pull-quote">
               <blockquote>«{DATA.pull.text}»</blockquote>
               <cite>— {DATA.pull.cite}</cite>

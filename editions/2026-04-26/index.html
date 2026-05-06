@@ -399,11 +399,9 @@
     background: var(--paper-2);
   }
   .footer-grid {
-    display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.4fr; gap: 28px;
+    display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 28px;
     font-size: 13px; color: var(--ink-2); line-height: 1.6;
   }
-  .footer-grid:has(> div:nth-child(4)) { grid-template-columns: 1.6fr 1fr 1fr 1.4fr; }
-  .footer-grid:not(:has(> div:nth-child(4))) { grid-template-columns: 2fr 1fr 1fr; }
   .comitato-group + .comitato-group { margin-top: 14px; }
   .comitato-group .c-label {
     font-size: 10px; color: var(--ink-3);
@@ -558,7 +556,7 @@
     .article-num { padding-top: 0; display: flex; gap: 10px; align-items: center; }
     .article-num .num { display: inline; margin: 0; }
     .article-arrow { display: none; }
-    .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 26px; }
     .toolbar { padding: 10px 14px; }
     .toolbar .meta { font-size: 11.5px; }
     .toolbar .actions .btn span:not(.ico-text) { display: none; }
@@ -1460,10 +1458,6 @@
           {/* Footer */}
           <footer className="footer">
             <div className="footer-grid">
-              <div>
-                <h5>Fedaiisf</h5>
-                <p>Federazione delle Associazioni italiane degli Informatori scientifici del farmaco e del parafarmaco. Promuoviamo la coesione tra gli associati e una visione condivisa dei temi della professione.</p>
-              </div>
               <div>
                 <h5>Sezioni</h5>
                 <ul>

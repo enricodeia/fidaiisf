@@ -565,6 +565,113 @@
     .share-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
+  /* Archive carousel */
+  .carousel {
+    margin: 8px 48px 32px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+  }
+  .carousel-head {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 16px; margin-bottom: 18px;
+  }
+  .carousel-head .ck-eyebrow {
+    font-size: 10.5px; color: var(--brand);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 600; margin-bottom: 4px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .carousel-head .ck-eyebrow::before {
+    content: ""; width: 18px; height: 1px; background: var(--brand);
+  }
+  .carousel-head h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px; font-weight: 500;
+    margin: 0; color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+  .carousel-nav { display: flex; gap: 6px; flex-shrink: 0; }
+  .carousel-nav button {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    color: var(--ink); cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: all .18s ease;
+    padding: 0;
+  }
+  .carousel-nav button:hover:not(:disabled) {
+    background: var(--ink); color: var(--paper); border-color: var(--ink);
+  }
+  .carousel-nav button:disabled { opacity: 0.28; cursor: not-allowed; }
+  .carousel-nav button svg { width: 16px; height: 16px; }
+  .carousel-track {
+    display: flex; gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding-bottom: 6px;
+    margin-right: -48px;
+    padding-right: 48px;
+  }
+  .carousel-track::-webkit-scrollbar { display: none; }
+  .archive-card {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+    background: #FFFAEB;
+    border: 1px solid rgba(139,31,44,0.10);
+    border-radius: 14px;
+    text-decoration: none; color: inherit;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .archive-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -16px rgba(91,26,42,0.28);
+    border-color: rgba(139,31,44,0.28);
+  }
+  .archive-image {
+    aspect-ratio: 16/9;
+    background: var(--paper);
+    overflow: hidden;
+  }
+  .archive-image img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .archive-body {
+    padding: 14px 16px 16px;
+    display: flex; flex-direction: column; gap: 8px;
+    flex: 1;
+  }
+  .archive-body h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500; font-size: 15px;
+    line-height: 1.28;
+    margin: 2px 0 0;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color .2s ease;
+  }
+  .archive-card:hover h4 { color: var(--brand); }
+  .archive-date {
+    font-size: 11px; color: var(--ink-3);
+    margin-top: auto; padding-top: 6px;
+    letter-spacing: 0.04em;
+  }
+  @media (max-width: 640px) {
+    .carousel { margin: 8px 28px 32px; }
+    .carousel-track { margin-right: -28px; padding-right: 28px; }
+    .archive-card { flex: 0 0 240px; }
+  }
+
   /* Reveal on load + on scroll */
   .fade-load {
     animation: fade-load .8s cubic-bezier(.2,.6,.2,1) var(--load-delay, 0ms) both;
@@ -686,7 +793,7 @@
   </script>
 
   <script type="text/babel" data-presets="env,react">
-  const { useState, useMemo, useEffect } = React;
+  const { useState, useMemo, useEffect, useRef } = React;
   const DATA = JSON.parse(document.getElementById('newsletter-data').textContent);
 
   const Icon = {
@@ -696,6 +803,67 @@
     check: <svg className="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>,
     copy: <svg className="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>,
   };
+
+  function ArchiveCarousel({ items }) {
+    const trackRef = useRef(null);
+    const [canLeft, setCanLeft] = useState(false);
+    const [canRight, setCanRight] = useState(true);
+
+    const update = () => {
+      const el = trackRef.current;
+      if (!el) return;
+      setCanLeft(el.scrollLeft > 4);
+      setCanRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4);
+    };
+    const scroll = (dir) => {
+      const el = trackRef.current;
+      if (!el) return;
+      const step = (el.clientWidth * 0.8) * dir;
+      el.scrollBy({ left: step, behavior: 'smooth' });
+    };
+    useEffect(() => {
+      update();
+      const el = trackRef.current;
+      if (!el) return;
+      el.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      return () => { el.removeEventListener('scroll', update); window.removeEventListener('resize', update); };
+    }, []);
+
+    if (!items || items.length === 0) return null;
+    return (
+      <div className="carousel" data-reveal="">
+        <div className="carousel-head">
+          <div>
+            <div className="ck-eyebrow">Archivio</div>
+            <h3>Tutti gli articoli recenti</h3>
+          </div>
+          <div className="carousel-nav">
+            <button onClick={() => scroll(-1)} disabled={!canLeft} aria-label="Articoli precedenti">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            </button>
+            <button onClick={() => scroll(1)} disabled={!canRight} aria-label="Articoli successivi">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+        <div className="carousel-track" ref={trackRef}>
+          {items.map((a, i) => (
+            <a key={i} className="archive-card" href={a.url} target="_blank" rel="noopener">
+              <div className="archive-image">
+                <img src={a.image} alt="" loading="lazy" />
+              </div>
+              <div className="archive-body">
+                <span className={`cat-tag ${a.categoryColor}`}>{a.category}</span>
+                <h4>{a.title}</h4>
+                <span className="archive-date">{a.date}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   function App() {
     const [toast, setToast] = useState(null);
@@ -865,6 +1033,9 @@
               <img src="assets/logo-fedaiisf.png" alt="Fedaiisf" />
             </div>
           </div>
+
+          {/* Archive carousel */}
+          <ArchiveCarousel items={DATA.archive} />
 
           {/* Footer */}
           <footer className="footer">

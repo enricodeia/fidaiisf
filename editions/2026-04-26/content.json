@@ -84,12 +84,295 @@
     "groups": [
       {
         "label": "Direzione",
-        "names": ["Francesco Ferrari", "Riccardo Bevilacqua"]
+        "names": [
+          "Francesco Ferrari",
+          "Riccardo Bevilacqua"
+        ]
       },
       {
         "label": "Redazione",
-        "names": ["Angelo Dazzi", "Andrea Deiana", "Valeria Noce", "Carmen Praticò", "Raffaele Procopio", "Nicole Righi", "Antonio Scano"]
+        "names": [
+          "Angelo Dazzi",
+          "Andrea Deiana",
+          "Valeria Noce",
+          "Carmen Praticò",
+          "Raffaele Procopio",
+          "Nicole Righi",
+          "Antonio Scano"
+        ]
       }
     ]
-  }
+  },
+  "archive": [
+    {
+      "title": "OMAR INVITO – C3G e IC MPGN in età pediatrica: nuove prospettive e il valore della presa in carico familiare | 12 maggio 2026 ore 17.30",
+      "summary": "Riceviamo e pubblichiamo Comunicato Stampa OMAR (Osservatorio Malattie Rare) INVITO – C3G e IC MPGN in età pediatrica: nuove prospettive e il valore della presa in carico familiare | 12 maggio 2026 or",
+      "url": "https://www.fedaiisf.it/omar-invito-c3g-e-ic-mpgn-in-eta-pediatrica-nuove-prospettive-e-il-valore-della-presa-in-carico-familiare-12-maggio-2026-ore-17-30/",
+      "date": "5 maggio 2026",
+      "category": "Scienze",
+      "categoryColor": "blue",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/05/OMAR-titolo.png"
+    },
+    {
+      "title": "AIFA pubblica il Terzo Position Paper sui farmaci biosimilari: focus su intercambiabilità, \"switch informato\" e sostenibilità del SSN",
+      "summary": "È online il terzo Position Paper AIFA sui farmaci biosimilari. L’aggiornamento del documento precedente (2018) si inserisce nel contesto delle recenti evoluzioni normative in tema di approvvigionament",
+      "url": "https://www.fedaiisf.it/aifa-pubblica-il-terzo-position-paper-sui-farmaci-biosimilari-focus-su-intercambiabilita-switch-informato-e-sostenibilita-del-ssn/",
+      "date": "4 maggio 2026",
+      "category": "AIFA",
+      "categoryColor": "red",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/05/biosimilari.png"
+    },
+    {
+      "title": "Lecce. Fedaiisf in piazza con Telethon",
+      "summary": "In data 3/05 la sezione Aiisf di Lecce come consuetudine ha affiancato Telethon nella raccolta fondi per la ricerca. I componenti del direttivo e numerosi iscritti della sezione di Lecce si sono ritro",
+      "url": "https://www.fedaiisf.it/lecce-fedaiisf-in-piazza-con-telethon/",
+      "date": "4 maggio 2026",
+      "category": "Professione",
+      "categoryColor": "green",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/05/Lecce-1-2026.png"
+    },
+    {
+      "title": "Sicilia. Rimpasto nella Giunta Schifani. Alla Sanità Caruso… E il taglio di 25 mln sui farmaci",
+      "summary": "Il presidente della Regione Sicilia, Renato Schifani, completa la giunta e chiude una partita politica che si trascinava da settimane. Nessun intervento sulle caselle di Fratelli d’Italia, che ha scel",
+      "url": "https://www.fedaiisf.it/sicilia-rimpasto-nella-giunta-schifani-alla-sanita-caruso-e-il-taglio-di-25-mln-sui-farmaci/",
+      "date": "4 maggio 2026",
+      "category": "Industria",
+      "categoryColor": "blue",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2022/03/ARS-Sicilia.jpeg"
+    },
+    {
+      "title": "Monitoraggio AIFA spesa farmaceutica gennaio-ottobre 2025",
+      "summary": "La spesa dei medicinali dispensati attraverso le farmacie aperte al pubblico risulta pari a 7.208,8 milioni di euro (6,39% del FSN), invece, quella relativa ai medicinali acquistati direttamente dalle",
+      "url": "https://www.fedaiisf.it/monitoraggio-aifa-spesa-farmaceutica-gennaio-ottobre-2025/",
+      "date": "3 maggio 2026",
+      "category": "AIFA",
+      "categoryColor": "red",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2025/04/farmacia-digitale-oggi-1024x627-1.jpg"
+    },
+    {
+      "title": "Informazione Scientifica sul Farmaco: ruolo associativo sulla normativa italiana (1946-2006)",
+      "summary": "Nelle varie fasi dell'iter legislativo, che ha preceduto, accompagnato e fatto seguito alla Legge di Riforma Sanitaria (n.833/78), l'AIISF ha sempre offerto il proprio contributo tecnico e di esperien",
+      "url": "https://www.fedaiisf.it/informazione-scientifica-sul-farmaco-ruolo-associativo-sulla-normativa-italiana-1946-2006/",
+      "date": "2 maggio 2026",
+      "category": "News",
+      "categoryColor": "blue",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/05/IMG_1432.jpg"
+    },
+    {
+      "title": "La SIGU ricorda J. Craig Venter, pioniere del sequenziamento del genoma umano",
+      "summary": "Riceviamo e pubblichiamo La SIGU ricorda J. Craig Venter, pioniere del sequenziamento del genoma umano Grammatico: “Uno dei protagonisti assoluti della genomica moderna ci ha lasciato”. Novelli: “La s",
+      "url": "https://www.fedaiisf.it/la-sigu-ricorda-j-craig-venter-pioniere-del-sequenziamento-del-genoma-umano/",
+      "date": "1 maggio 2026",
+      "category": "Scienze",
+      "categoryColor": "blue",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/05/Venter-Genoma.png"
+    },
+    {
+      "title": "Il Gruppo Chiesi acquisisce KalVista Pharmaceuticals (1,9 miliardi di $), rafforzando il portafoglio globale nelle Malattie Rare",
+      "summary": "Highlights: Chiesi ha approvato l’acquisizione di KalVista Pharmaceuticals per 27,00 USD per azione in contanti, per un controvalore complessivo di circa 1,9 miliardi di USD L’Operazione aggiunge al p",
+      "url": "https://www.fedaiisf.it/il-gruppo-chiesi-acquisisce-kalvista-pharmaceuticals-19-miliardi-di-rafforzando-il-portafoglio-globale-nelle-malattie-rare/",
+      "date": "30 aprile 2026",
+      "category": "Territorio",
+      "categoryColor": "green",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2019/06/Chiesi-1.jpg"
+    },
+    {
+      "title": "I \"silenti\" Enasarco. Un'ingiustizia dimenticata. N.d.R.",
+      "summary": "Su Huffpost del 27 aprile 2026 è stata pubblicata una lettera di Francesco Briganti, un \"silente\"che ha trasformato una condizione personale in una battaglia collettiva. La riportiamo nella presentazi",
+      "url": "https://www.fedaiisf.it/i-silenti-enasarco-uningiustizia-dimenticata/",
+      "date": "29 aprile 2026",
+      "category": "Norme",
+      "categoryColor": "blue",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/enasarco-silenti.png"
+    },
+    {
+      "title": "La transumanza e Sanità in Capitanata tra storia e medicina: un incontro promosso da AIISF Foggia",
+      "summary": "COMUNICATO STAMPA Foggia, 27-04-2026 La transumanza e Sanità in Capitanata tra storia e medicina: un incontro promosso da AIISF Foggia Si è svolto a Foggia, con grande interesse da parte del mondo san",
+      "url": "https://www.fedaiisf.it/la-transumanza-e-sanita-in-capitanata-tra-storia-e-medicina-un-incontro-promosso-da-aiisf-foggia/",
+      "date": "28 aprile 2026",
+      "category": "Professione",
+      "categoryColor": "green",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/foggia-trans-titolo.png"
+    },
+    {
+      "title": "La riforma Schillaci per i medici di famiglia. I medici: \"inefficace, inutile e dannosa\"",
+      "summary": "Riforma sanità, arriva il decreto Schillaci: cosa cambia per i medici di famiglia Sky TG24 – 25 aprile 2026 Un medico di famiglia al centro dell'assistenza territoriale, motore delle Case di Comunità ",
+      "url": "https://www.fedaiisf.it/la-riforma-schillaci-per-i-medici-di-famiglia-i-medici-inefficace-inutile-e-dannosa/",
+      "date": "27 aprile 2026",
+      "category": "Politica sanitaria",
+      "categoryColor": "red",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/Riforma-Achillaci.png"
+    },
+    {
+      "title": "Federfarma. Cosmofarma 2026, il convegno Fedaiisf tra etica e innovazione",
+      "summary": "Cosmofarma 2026, il convegno Fedaiisf tra etica e innovazione Federfarma – 23 aprile 2026 La diffusione dei farmaci di precisione e l’impiego sempre più generalizzato dell’intelligenza artificiale, co",
+      "url": "https://www.fedaiisf.it/cosmofarma-2026-il-convegno-fedaiisf-tra-etica-e-innovazione/",
+      "date": "24 aprile 2026",
+      "category": "Professione",
+      "categoryColor": "green",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/cosmofarma-2026-fedaiisf.png"
+    },
+    {
+      "title": "Punto Effe. Cosmofarma, informatori scientifici a convegno su etica e innovazione",
+      "summary": "L’impatto di terapie personalizzate, parafarmaci e AI sul futuro della professione Punto Effe – 21 aprile 2026 La diffusione dei farmaci di precisione, l'impiego sempre più generalizzato (visibile o s",
+      "url": "https://www.fedaiisf.it/cosmofarma-informatori-scientifici-a-convegno-su-etica-e-innovazione/",
+      "date": "22 aprile 2026",
+      "category": "Professione",
+      "categoryColor": "green",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/cosmofarma-2-bis.png"
+    },
+    {
+      "title": "Socialfarma. Cosmofarma 2026. Informatori scientifici: “L’intelligenza artificiale non ci ruba il lavoro, ma cambia tutto”",
+      "summary": "Informatori scientifici: “L’intelligenza artificiale non ci ruba il lavoro, ma cambia tutto” Socialfarma – 21 aprile 2026 C’è una malattia che si chiama bixonimania. Non cercatela sui libri di medicin",
+      "url": "https://www.fedaiisf.it/cosmofarma-2026-informatori-scientifici-lintelligenza-artificiale-non-ci-ruba-il-lavoro-ma-cambia-tutto/",
+      "date": "21 aprile 2026",
+      "category": "Professione",
+      "categoryColor": "green",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/IA-intelligenza-artificiale.png"
+    },
+    {
+      "title": "Chieti. Professionisti a confronto: l’Informazione Scientifica incontra i futuri Medici di Medicina Generale",
+      "summary": "CHIETI – Si è tenuto il 20 aprile u.s. presso l’Ordine dei medici a Chieti un importante incontro di orientamento e confronto tra la delegazione di Informatori Scientifici del Farmaco ARISF Abruzzo (I",
+      "url": "https://www.fedaiisf.it/chieti-professionisti-a-confronto-linformazione-scientifica-incontra-i-futuri-medici-di-medicina-generale/",
+      "date": "21 aprile 2026",
+      "category": "Professione",
+      "categoryColor": "green",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/Fimmg-con-ARISF.png"
+    },
+    {
+      "title": "AIFA. Dalle terapie a taglia unica alle cure su misura: la rivoluzione della medicina di precisione",
+      "summary": "Nel nuovo dossier AIFA l’impatto clinico ed economico delle terapie mirate e della prescrittomica La medicina sta vivendo una trasformazione profonda: dall’approccio standardizzato, basato sul “pazien",
+      "url": "https://www.fedaiisf.it/aifa-dalle-terapie-a-taglia-unica-alle-cure-su-misura-la-rivoluzione-della-medicina-di-precisione/",
+      "date": "21 aprile 2026",
+      "category": "AIFA",
+      "categoryColor": "red",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/dossier-prescrittomica.png"
+    },
+    {
+      "title": "ISTAT. Commercio con l'estero. A febbraio 2026: articoli farmaceutici +3,0%",
+      "summary": "Commercio con l’estero e prezzi all’import – Febbraio 2026 ISTAT – 17 aprile 2026 A febbraio 2026 si stima una crescita congiunturale più ampia per le importazioni (+3,5%) rispetto alle esportazioni (",
+      "url": "https://www.fedaiisf.it/istat-commercio-con-lestero-a-febbraio-2026-articoli-farmaceutici-30/",
+      "date": "18 aprile 2026",
+      "category": "News",
+      "categoryColor": "blue",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2017/03/istat.2.jpg"
+    },
+    {
+      "title": "AlfaSigma. Cessione Sofar a Fine Foods &#038; Pharmaceuticals",
+      "summary": "Alfasigma ha annunciato una nuova fase nella sua strategia di espansione, con un focus particolare su investimenti e acquisizioni nel settore farmaceutico. L’azienda ha comunicato di aver concluso un’",
+      "url": "https://www.fedaiisf.it/alfasigma-cessione-sofar-a-fine-foods-pharmaceuticals/",
+      "date": "17 aprile 2026",
+      "category": "Territorio",
+      "categoryColor": "green",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/sofar.png"
+    },
+    {
+      "title": "Mancano medici di base. In USA la ricetta la fa l'intelligenza artificiale",
+      "summary": "Nello Utah si tenta di sopperire alla mancanza di medici di base utilizzando l’IA per fornire oltre 200 medicine tra statine, corticosteroidi o antidepressivi. Sesti (ex presidente SIMI). “La medicina",
+      "url": "https://www.fedaiisf.it/mancano-medici-di-base-in-usa-la-ricetta-la-fa-lintelligenza-artificiale/",
+      "date": "17 aprile 2026",
+      "category": "Territorio",
+      "categoryColor": "green",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/ricetta-automatica-2-con-tessera-sanitaria.png"
+    },
+    {
+      "title": "Farmaci sotto pressione. Perché la crisi parte da Hormuz",
+      "summary": "Farmaci sotto pressione: la crisi parte dallo Stretto di Hormuz scienza in rete – 16/04/2026 di Claudio De Luca Di solito, non ci chiediamo da dove vengano i farmaci. Quando ingeriamo con un sorso d'a",
+      "url": "https://www.fedaiisf.it/farmaci-sotto-pressione-perche-la-crisi-parte-da-hormuz/",
+      "date": "16 aprile 2026",
+      "category": "Territorio",
+      "categoryColor": "green",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/stretto-di-Hormuz.png"
+    },
+    {
+      "title": "Sanità, Venesia (Fimmg): \"Il farmaco può fare molto nella gestione delle liste d'attesa\"",
+      "summary": "\"Il farmaco può fare tantissimo sulla questione delle liste d'attesa. Noi medici di medicina generale siamo assolutamente favorevoli nel togliere tutto quello che può essere di intralcio all'accesso a",
+      "url": "https://www.fedaiisf.it/sanita-venesia-fimmg-il-farmaco-puo-fare-molto-nella-gestione-delle-liste-dattesa/",
+      "date": "16 aprile 2026",
+      "category": "Politica sanitaria",
+      "categoryColor": "red",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2024/01/liste-di-attesa.jpeg"
+    },
+    {
+      "title": "Allarme Farmindustria. La produzione farmaceutica è a rischio già dai prossimi mesi",
+      "summary": "Industria farmaceutica disperata. \"La crisi energetica mette a rischio i medicinali\" Il presidente di Farmindustria avverte: tra crisi in Medio Oriente, rincari energetici e dipendenza da Cina e India",
+      "url": "https://www.fedaiisf.it/allarme-farmindustria-la-produzione-farmaceutica-e-a-rischio-gia-dai-prossimi-mesi/",
+      "date": "15 aprile 2026",
+      "category": "Territorio",
+      "categoryColor": "green",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/farmindustrioa-evento.png"
+    },
+    {
+      "title": "Insieme per la vita. Corso BLSD a Mazara del Vallo. Croce Rossa e Informatori Scientifici Uniti nel Segno del Primo Soccorso",
+      "summary": "Insieme per la Vita: Misericordia, Croce Rossa e Informatori Scientifici Uniti nel Segno del Primo Soccorso prima pagina Mazara – 13 aprile 2026 In un mondo dove la tempestività può fare la differenza",
+      "url": "https://www.fedaiisf.it/insieme-per-la-vita-corso-blsd-a-mazara-del-vallo-croce-rossa-e-informatori-scientifici-uniti-nel-segno-del-primo-soccorso/",
+      "date": "14 aprile 2026",
+      "category": "Professione",
+      "categoryColor": "green",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/corso-blsd-mazara.png"
+    },
+    {
+      "title": "Reggio Calabria. Incendio in un ambulatorio di Rosarno. La Sez. AIISF: ‘Gesto vile, colpito un presidio di assistenza’",
+      "summary": "Incendio all’ambulatorio di Rosarno, l’AIISF: ‘Gesto vile, colpito un presidio di assistenza’ La solidarietà dell'Associazione Italiana Informatori Scientifici del Farmaco e Parafarmaco di Reggio al d",
+      "url": "https://www.fedaiisf.it/reggio-calabria-incendio-in-un-ambulatorio-di-rosarno-la-sez-aiisf-gesto-vile-colpito-un-presidio-di-assistenza/",
+      "date": "14 aprile 2026",
+      "category": "Professione",
+      "categoryColor": "green",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2019/04/Aggressione-ai-medici.jpg"
+    },
+    {
+      "title": "U.E.Import Export prodotti farmaceutici in attivo di 220,5 miliardi",
+      "summary": "Eurostat. Prodotti medicinali e farmaceutici: 221 miliardi di euro in avanzo commerciale Eurostat – 13 aprile 2026 Nel 2025, l'UE ha esportato prodotti medicinali e farmaceutici per un valore di 366,2",
+      "url": "https://www.fedaiisf.it/u-e-import-export-prodotti-farmaceutici-in-attivo-di-2205-miliardi/",
+      "date": "14 aprile 2026",
+      "category": "News",
+      "categoryColor": "blue",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/eurostat.png"
+    },
+    {
+      "title": "Possibile taglio dei prezzi di riferimento dei generici",
+      "summary": "Generici, all’orizzonte tagli Aifa ai prezzi di rimborso. E nei Paesi vicini remunerazione delle farmacie sempre più slegata dal farmaco Pharmacy Scanner – 13 aprile 2026 Aziende di generici e filiera",
+      "url": "https://www.fedaiisf.it/possibile-taglio-dei-prezzi-di-riferimento-dei-generici/",
+      "date": "13 aprile 2026",
+      "category": "AIFA",
+      "categoryColor": "red",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/tessera-sanitaria-acquisto-farmaci.png"
+    },
+    {
+      "title": "Sciopero farmacisti il 13 aprile",
+      "summary": "Farmacisti dipendenti. Farmacie private, nuovo sciopero: in piazza per il contratto A Roma il corteo di addetti del comparto per sbloccare la trattativa con Federfarma, tra rivendicazioni economiche, ",
+      "url": "https://www.fedaiisf.it/sciopero-farmacisti-il-13-aprile/",
+      "date": "13 aprile 2026",
+      "category": "Politica sanitaria",
+      "categoryColor": "red",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/Farmacia-sciopero.png"
+    },
+    {
+      "title": "Roche nel mercato dei farmaci contro l’obesità",
+      "summary": "Il colosso farmaceutico svizzero Roche può rivoluzionare il mercato dei farmaci contro l’obesità? Dopo essersi lasciata sfuggire il successo della prima ondata di farmaci a base di GLP-1, Roche sta pu",
+      "url": "https://www.fedaiisf.it/roche-nel-mercato-dei-farmaci-contro-lobesita/",
+      "date": "12 aprile 2026",
+      "category": "Territorio",
+      "categoryColor": "green",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2022/07/Roche-bandiere.jpeg"
+    },
+    {
+      "title": "L'indiana Sun Pharma ha offerto 12 miliardi di dollari per acquisire Organon",
+      "summary": "Le azioni Organon balzano dell’8,4% dopo l’offerta da 12 miliardi di dollari di Sun Pharma investing – 10.04.2026 Le azioni di Organon sono salite dell’8,4% a 7,49 dollari nelle contrattazioni pre-mer",
+      "url": "https://www.fedaiisf.it/lindiana-sun-pharma-ha-offerto-12-miliardi-di-dollari-per-acquisire-organon/",
+      "date": "11 aprile 2026",
+      "category": "Territorio",
+      "categoryColor": "green",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/01/sun-Pharma-sede.png"
+    },
+    {
+      "title": "Frosinone. Nasce la Sezione Provinciale di AISFPRO Lazio",
+      "summary": "COMUNICATO STAMPA — Roma, 9 aprile 2026 Frosinone. Nasce la Sezione Provinciale di AISFPRO Lazio Il 9 aprile 2026 è nata AISFPRO Frosinone. Finalmente Frosinone entra in AISFPRO Lazio. Il Consiglio Di",
+      "url": "https://www.fedaiisf.it/frosinone-nasce-la-sezione-provinciale-di-aisfpro-lazio/",
+      "date": "11 aprile 2026",
+      "category": "Professione",
+      "categoryColor": "green",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/Frosinone-AisfProLazio.png"
+    }
+  ]
 }

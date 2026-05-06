@@ -644,25 +644,29 @@
 
   .archive-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
     animation: view-fade .35s cubic-bezier(.2,.6,.2,1);
   }
   .archive-grid .archive-card {
-    flex: none; width: auto;
-    animation: card-pop .45s cubic-bezier(.2,.6,.2,1) backwards;
+    flex: initial;
+    width: 100%;
+    min-width: 0;
+    scroll-snap-align: none;
+    animation: card-in .4s cubic-bezier(.2,.6,.2,1);
   }
   @keyframes view-fade {
     from { opacity: 0; transform: translateY(6px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  @keyframes card-pop {
-    from { opacity: 0; transform: translateY(10px); }
+  @keyframes card-in {
+    from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
   }
   .grid-expand {
-    margin-top: 18px;
+    margin-top: 20px;
     display: flex; justify-content: center;
+    animation: view-fade .35s cubic-bezier(.2,.6,.2,1);
   }
   .grid-expand button {
     padding: 11px 22px;
@@ -676,14 +680,11 @@
     display: inline-flex; align-items: center; gap: 8px;
   }
   .grid-expand button:hover { background: var(--ink); color: var(--paper); }
-  @media (max-width: 720px) {
-    .archive-grid { grid-template-columns: repeat(2, 1fr); }
-  }
   @media (max-width: 480px) {
     .archive-grid { grid-template-columns: 1fr; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .carousel-track, .archive-grid, .archive-grid .archive-card { animation: none !important; }
+    .carousel-track, .archive-grid, .archive-grid .archive-card, .grid-expand { animation: none !important; }
   }
   .archive-card {
     flex: 0 0 280px;
@@ -1174,9 +1175,9 @@
 
   const GRID_STEP = 6;
 
-  function ArchiveCard({ a, i }) {
+  function ArchiveCard({ a }) {
     return (
-      <a key={i} className="archive-card" href={a.url} target="_blank" rel="noopener" style={{ animationDelay: `${i * 35}ms` }}>
+      <a className="archive-card" href={a.url} target="_blank" rel="noopener">
         <div className="archive-image">
           <img src={a.image} alt="" loading="lazy" />
         </div>
@@ -1186,6 +1187,34 @@
           <span className="archive-date">{a.date}</span>
         </div>
       </a>
+    );
+  }
+
+  function ArchiveGridView({ items, limit, onExpand }) {
+    const visible = items.slice(0, limit);
+    const remaining = items.length - limit;
+    return (
+      <React.Fragment>
+        <div className="archive-grid">
+          {visible.map((a, i) => <ArchiveCard key={a.url || i} a={a} />)}
+        </div>
+        {remaining > 0 && (
+          <div className="grid-expand">
+            <button onClick={onExpand}>
+              Mostra altri {Math.min(6, remaining)} articoli
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        )}
+      </React.Fragment>
+    );
+  }
+
+  function ArchiveHorizontalView({ items, trackRef }) {
+    return (
+      <div className="carousel-track" ref={trackRef}>
+        {items.map((a, i) => <ArchiveCard key={a.url || i} a={a} />)}
+      </div>
     );
   }
 
@@ -1219,11 +1248,9 @@
     }, [mode]);
 
     if (!items || items.length === 0) return null;
-    const remaining = Math.max(0, items.length - gridLimit);
-    const visibleGrid = items.slice(0, gridLimit);
 
     return (
-      <div className={`carousel mode-${mode}`} data-reveal="">
+      <div className={`carousel mode-${mode}`}>
         <div className="carousel-head">
           <div>
             <div className="ck-eyebrow">Archivio</div>
@@ -1251,25 +1278,9 @@
           </div>
         </div>
 
-        {mode === 'horizontal' ? (
-          <div className="carousel-track" ref={trackRef}>
-            {items.map((a, i) => <ArchiveCard key={i} a={a} i={i} />)}
-          </div>
-        ) : (
-          <React.Fragment>
-            <div className="archive-grid">
-              {visibleGrid.map((a, i) => <ArchiveCard key={i} a={a} i={i} />)}
-            </div>
-            {remaining > 0 && (
-              <div className="grid-expand">
-                <button onClick={() => setGridLimit(g => g + GRID_STEP)}>
-                  Mostra altri {Math.min(GRID_STEP, remaining)} articoli
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-              </div>
-            )}
-          </React.Fragment>
-        )}
+        {mode === 'horizontal'
+          ? <ArchiveHorizontalView items={items} trackRef={trackRef} />
+          : <ArchiveGridView items={items} limit={gridLimit} onExpand={() => setGridLimit(g => g + GRID_STEP)} />}
       </div>
     );
   }

@@ -214,28 +214,55 @@
   }
 
   /* Articles list */
-  .grid { padding: 0 48px 28px; }
-  .article-row {
+  .grid { padding: 12px 48px 28px; display: flex; flex-direction: column; gap: 0; }
+  .article-card {
     display: grid;
-    grid-template-columns: 48px 1fr auto;
-    gap: 20px; padding: 26px 0;
-    border-top: 1px solid var(--accent-purple);
-    align-items: baseline;
+    grid-template-columns: 150px 1fr;
+    gap: 22px;
+    padding: 22px;
+    background: #FBF4DE;
+    border: 1px solid rgba(139,31,44,0.10);
+    border-radius: 18px;
+    text-decoration: none; color: inherit;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    position: relative;
+    align-items: stretch;
   }
-  .article-row:last-child { border-bottom: 1px solid var(--accent-purple); }
-  .article-num {
-    font-size: 11.5px; color: var(--ink-3);
-    padding-top: 6px; line-height: 1.4;
-    font-weight: 500; letter-spacing: 0.04em;
+  .article-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px -18px rgba(91,26,42,0.28);
+    border-color: rgba(139,31,44,0.28);
   }
-  .article-num .num { color: var(--ink-2); }
+  .article-card.no-image { grid-template-columns: 1fr; }
+
+  .article-image {
+    width: 150px; aspect-ratio: 4/3;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--paper);
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+  .article-image img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+
+  .article-content { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+  .article-meta-top {
+    display: flex; align-items: center; gap: 14px;
+    flex-wrap: wrap;
+  }
+  .article-meta-top .num {
+    font-size: 10.5px; color: var(--ink-3);
+    font-weight: 600; letter-spacing: 0.12em;
+  }
+
   .cat-tag {
     display: inline-flex; align-items: center; gap: 9px;
     padding: 0; background: none;
     font-size: 10.5px; font-weight: 500;
     letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--ink-2);
-    margin-bottom: 12px;
     white-space: nowrap;
   }
   .cat-tag::before {
@@ -249,45 +276,47 @@
   .cat-tag.green::before { background: var(--accent-green); box-shadow: 0 0 0 3px rgba(27,122,76,0.10); }
   .cat-tag.blue::before { background: var(--brand); box-shadow: 0 0 0 3px rgba(11,79,160,0.10); }
 
-  .article-body h3 {
+  .article-title {
     font-family: 'Fraunces', serif;
     font-weight: 500;
     font-size: 19px; line-height: 1.22;
     letter-spacing: -0.01em;
-    margin: 0 0 8px; color: var(--ink);
+    margin: 0; color: var(--ink);
     text-wrap: balance;
+    transition: color .2s ease;
   }
-  .article-body h3 a {
-    color: inherit; text-decoration: none;
-    background-image: linear-gradient(var(--ink), var(--ink));
-    background-size: 0 1px; background-repeat: no-repeat; background-position: 0 100%;
-    transition: background-size .25s ease;
-  }
-  .article-body h3 a:hover { background-size: 100% 1px; }
-  .article-body p {
-    margin: 0; font-size: 14px; line-height: 1.6;
+  .article-card:hover .article-title { color: var(--brand); }
+  .article-summary {
+    margin: 0; font-size: 14px; line-height: 1.55;
     color: var(--ink-2);
     text-wrap: pretty;
   }
-  .article-body .meta-line {
-    margin-top: 10px;
+  .article-content .meta-line {
+    margin-top: 4px;
     display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
     font-size: 12px; color: var(--ink-3);
   }
-  .article-body .meta-line a {
-    color: var(--brand); text-decoration: none; font-weight: 500;
+  .article-content .meta-line .sep { color: var(--line); }
+  .article-content .meta-line .arrow-inline {
+    margin-left: auto;
+    display: inline-flex; align-items: center;
+    color: var(--accent-red);
+    transition: transform .25s ease;
   }
-  .article-body .meta-line a:hover { text-decoration: underline; }
-  .article-body .meta-line .sep { color: var(--line); }
-  .article-arrow {
-    align-self: center;
-    width: 36px; height: 36px; border-radius: var(--r-pill);
-    border: 1px solid var(--line);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--ink-3); text-decoration: none;
-    transition: all .15s ease; background: var(--paper);
+  .article-card:hover .arrow-inline { transform: translateX(4px); }
+
+  .divider-red {
+    width: 80px; height: 4px;
+    background: var(--accent-red);
+    border-radius: 999px;
+    margin: 18px auto;
+    flex-shrink: 0;
   }
-  .article-arrow:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); transform: translateX(2px); }
+
+  @media (max-width: 640px) {
+    .article-card { grid-template-columns: 1fr; gap: 14px; padding: 18px; }
+    .article-image { width: 100%; aspect-ratio: 16/9; }
+  }
 
   /* Pull quote */
   .pull {
@@ -327,6 +356,7 @@
     padding: 6px;
     object-fit: contain;
     box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    animation: logo-breathe 7s ease-in-out infinite;
   }
   .pull-logo .ping {
     position: absolute;
@@ -334,19 +364,26 @@
     width: 88px; height: 88px;
     margin: -44px 0 0 -44px;
     border-radius: 50%;
-    border: 2px solid rgba(255,255,255,0.55);
-    animation: pull-ping 2.6s cubic-bezier(0.0, 0.0, 0.2, 1) infinite;
+    border: 1.5px solid rgba(255,255,255,0.55);
+    animation: pull-ping 5.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     pointer-events: none;
+    will-change: transform, opacity;
   }
-  .pull-logo .ping:nth-of-type(2) { animation-delay: 0.65s; border-color: rgba(255,255,255,0.4); }
-  .pull-logo .ping:nth-of-type(3) { animation-delay: 1.3s; border-color: rgba(255,255,255,0.25); }
+  .pull-logo .ping:nth-of-type(2) { animation-delay: 1.8s; border-color: rgba(255,255,255,0.4); }
+  .pull-logo .ping:nth-of-type(3) { animation-delay: 3.6s; border-color: rgba(255,255,255,0.28); }
   @keyframes pull-ping {
-    0%   { transform: scale(1);   opacity: 0.7; }
-    80%  { opacity: 0; }
-    100% { transform: scale(2.6); opacity: 0; }
+    0%   { transform: scale(1);    opacity: 0;    }
+    18%  {                         opacity: 0.55; }
+    55%  {                         opacity: 0.18; }
+    100% { transform: scale(2.4);  opacity: 0;    }
+  }
+  @keyframes logo-breathe {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.045); }
   }
   @media (prefers-reduced-motion: reduce) {
-    .pull-logo .ping { animation: none; opacity: 0.4; }
+    .pull-logo .ping { animation: none; opacity: 0.32; }
+    .pull-logo img { animation: none; }
   }
   @media (max-width: 640px) {
     .pull { flex-direction: column; gap: 24px; padding: 32px 28px; }
@@ -565,7 +602,8 @@
       "summary": "MSD firma un'intesa fino a un miliardo di dollari con Google Cloud per accelerare lo sviluppo dei farmaci. L'AI agentica diventa leva industriale e ridefinisce gli equilibri della ricerca farmaceutica.",
       "source": "Pharmastar",
       "date": "23 aprile 2026",
-      "url": "https://www.fedaiisf.it/msd-punta-sullai-agentica/"
+      "url": "https://www.fedaiisf.it/msd-punta-sullai-agentica/",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/AI-gentica.png"
     },
     {
       "category": "Politica sanitaria",
@@ -574,7 +612,8 @@
       "summary": "Egualia segnala il rischio che la legge di bilancio 2026 riveda la lista dei farmaci concedibili da AIFA. La conseguenza temuta è uno scivolamento dei costi dal sistema pubblico ai cittadini.",
       "source": "Egualia",
       "date": "23 aprile 2026",
-      "url": "https://www.fedaiisf.it/egualia-allarme-farmaceutica-pubblica-rischio-di-maggiori-oneri-per-i-cittadini/"
+      "url": "https://www.fedaiisf.it/egualia-allarme-farmaceutica-pubblica-rischio-di-maggiori-oneri-per-i-cittadini/",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/acquisto-farmaci-soldi.png"
     },
     {
       "category": "Professione",
@@ -583,7 +622,8 @@
       "summary": "Intelligenza artificiale, medicina di precisione e nuovi modelli di informazione al centro del confronto Fedaiisf a Cosmofarma. La professione dell'Informatore scientifico del farmaco si riposiziona nel rapporto con medico e paziente.",
       "source": "Farmacista33",
       "date": "23 aprile 2026",
-      "url": "https://www.fedaiisf.it/informatori-scientifici-ai-e-terapie-personalizzate-ridisegnano-la-professione-il-confronto-a-cosmofarma/"
+      "url": "https://www.fedaiisf.it/informatori-scientifici-ai-e-terapie-personalizzate-ridisegnano-la-professione-il-confronto-a-cosmofarma/",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/Cosmofarma-2026.png"
     },
     {
       "category": "Professione",
@@ -592,7 +632,8 @@
       "summary": "Si è spento Umberto Baraldi, associato ANCSIF dal 1971 e riferimento per la sezione bolognese. La sua attività ha accompagnato generazioni di Informatori scientifici del farmaco.",
       "source": "Fedaiisf",
       "date": "26 aprile 2026",
-      "url": "https://www.fedaiisf.it/i-nostri-lutti-ci-ha-lasciato-umberto-baraldi-storica-figura-dellaiisf-bolognese/"
+      "url": "https://www.fedaiisf.it/i-nostri-lutti-ci-ha-lasciato-umberto-baraldi-storica-figura-dellaiisf-bolognese/",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2026/04/Baraldi.png"
     },
     {
       "category": "Norme",
@@ -601,7 +642,8 @@
       "summary": "Il decreto legge PNRR pubblicato in Gazzetta Ufficiale alza a 73 anni il limite di età per i medici di medicina generale. La misura punta a contenere la carenza di MMG nei territori.",
       "source": "Gazzetta Ufficiale",
       "date": "22 aprile 2026",
-      "url": "https://www.fedaiisf.it/i-medici-di-famiglia-possono-restare-in-servizio-fino-a-73-anni/"
+      "url": "https://www.fedaiisf.it/i-medici-di-famiglia-possono-restare-in-servizio-fino-a-73-anni/",
+      "image": ""
     },
     {
       "category": "AIFA",
@@ -610,7 +652,8 @@
       "summary": "AIFA pubblica i Rapporti regionali 2024 sull'uso dei farmaci. L'analisi orienta le politiche sanitarie territoriali e misura l'appropriatezza prescrittiva, dato chiave per il dialogo con prescrittori e farmacisti.",
       "source": "AIFA",
       "date": "21 aprile 2026",
-      "url": "https://www.fedaiisf.it/aifa-pubblica-il-rapporto-regionale-sulluso-dei-farmaci/"
+      "url": "https://www.fedaiisf.it/aifa-pubblica-il-rapporto-regionale-sulluso-dei-farmaci/",
+      "image": "https://www.fedaiisf.it/wp-content/uploads/2020/07/ITALIA-Regioni.gif"
     }
   ],
   "pull": {
@@ -717,8 +760,6 @@
 
           <div className="rule tri" />
 
-          <div className="rule red" />
-
           {/* Hero */}
           <div className="sec-head">
             <div>
@@ -744,8 +785,6 @@
             </div>
           </article>
 
-          <div className="rule red" />
-
           {/* Articles */}
           <div className="sec-head">
             <div>
@@ -757,24 +796,30 @@
 
           <div className="grid">
             {DATA.articles.map((a, i) => (
-              <div key={i} className="article-row">
-                <div className="article-num">
-                  <span className="num">N° {String(i + 1).padStart(2, '0')}</span>
-                </div>
-                <div className="article-body">
-                  <span className={`cat-tag ${a.categoryColor}`}>{a.category}</span>
-                  <h3><a href={a.url} target="_blank" rel="noopener">{a.title}</a></h3>
-                  <p>{a.summary}</p>
-                  <div className="meta-line">
-                    <span>{a.source}</span>
-                    <span className="sep">·</span>
-                    <span>{a.date}</span>
-                    <span className="sep">·</span>
-                    <a href={a.url} target="_blank" rel="noopener">Leggi su fedaiisf.it</a>
+              <React.Fragment key={i}>
+                {i > 0 && <div className="divider-red" aria-hidden="true"></div>}
+                <a className={`article-card ${a.image ? '' : 'no-image'}`} href={a.url} target="_blank" rel="noopener">
+                  {a.image && (
+                    <div className="article-image">
+                      <img src={a.image} alt="" loading="lazy" />
+                    </div>
+                  )}
+                  <div className="article-content">
+                    <div className="article-meta-top">
+                      <span className="num">N° {String(i + 1).padStart(2, '0')}</span>
+                      <span className={`cat-tag ${a.categoryColor}`}>{a.category}</span>
+                    </div>
+                    <h3 className="article-title">{a.title}</h3>
+                    <p className="article-summary">{a.summary}</p>
+                    <div className="meta-line">
+                      <span>{a.source}</span>
+                      <span className="sep">·</span>
+                      <span>{a.date}</span>
+                      <span className="arrow-inline" aria-hidden="true">{Icon.arrow}</span>
+                    </div>
                   </div>
-                </div>
-                <a className="article-arrow" href={a.url} target="_blank" rel="noopener" aria-label="Leggi l'articolo">{Icon.arrow}</a>
-              </div>
+                </a>
+              </React.Fragment>
             ))}
           </div>
 
@@ -835,9 +880,10 @@
             <div className="colophon">
               <div>© 2026 Fedaiisf · CF 91011770293</div>
               <div className="socials">
-                <a href="https://www.facebook.com/fedaiisf.it/">Facebook</a>
-                <a href="https://www.linkedin.com/company/fedaiisf-isf/">LinkedIn</a>
-                <a href="https://www.instagram.com/fedaiisf2025/">Instagram</a>
+                <a href="https://www.facebook.com/fedaiisf.it/" target="_blank" rel="noopener">Facebook</a>
+                <a href="https://www.linkedin.com/company/fedaiisf-isf/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://www.instagram.com/fedaiisf2025/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.youtube.com/channel/UC8hC_K7u8bSzwhybt6YgKIA" target="_blank" rel="noopener">YouTube</a>
               </div>
             </div>
           </footer>

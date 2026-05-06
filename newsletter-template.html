@@ -306,10 +306,10 @@
   .article-card:hover .arrow-inline { transform: translateX(4px); }
 
   .divider-red {
-    width: 80px; height: 4px;
+    width: 100%; height: 4px;
     background: var(--accent-red);
     border-radius: 999px;
-    margin: 18px auto;
+    margin: 20px 0;
     flex-shrink: 0;
   }
 
@@ -1153,8 +1153,8 @@
             </div>
           </div>
 
-          {/* Archive carousel */}
-          <ArchiveCarousel items={DATA.archive} />
+          {/* Archive carousel — disattivato temporaneamente */}
+          {false && <ArchiveCarousel items={DATA.archive} />}
 
           {/* Footer */}
           <footer className="footer">
